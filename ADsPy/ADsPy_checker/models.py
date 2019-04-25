@@ -1,6 +1,6 @@
 from django.db import models
 from django.urls import reverse
-from ADsPy import PrepareLocation, SeleniumCtrl, LoadBar, Utilis, style
+from adspy import PrepareLocation, SeleniumCtrl, LoadBar, Utilis, style
 from selenium.webdriver.common.keys import Keys
 import pandas as pd
 import bs4 as BS
@@ -430,3 +430,5 @@ class MySearch(models.Model):
                     driver_plain.refresh()
 
         driver_plain.close()
+
+
