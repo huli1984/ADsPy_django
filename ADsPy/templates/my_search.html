@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>My Search Summary</title>
+
+</head>
+<body>
+    <div>
+        {%for element in object_list%}
+        <a href="{{element.get_url}}"><h1>{{element.my_query}}</h1></a>
+            <h2>{{element.geolocation}}</h2>
+            <h3>{{element.timestamp_now}}</h3>
+            <p>{{element.result_field|safe|linebreaks|truncatewords_html:50}}</p>
+        {%endfor%}
+
+
+
+    </div>
+
+    <div class="pagination">
+            <span class="step-links">
+                {% if page_obj.has_previous %}
+                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
+                {% endif %}
+
+                {% if page_obj.has_next %}
+                    <a href="?page={{ page_obj.next_page_number }}">next</a>
+                {% endif %}
+            </span>
+    </div>
+
+</body>
+</html>
