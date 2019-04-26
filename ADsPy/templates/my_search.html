@@ -12,6 +12,9 @@
             <h2>{{element.geolocation}}</h2>
             <h3>{{element.timestamp_now}}</h3>
             <p>{{element.result_field|safe|linebreaks|truncatewords_html:50}}</p>
+            </br>
+            <p>{{element.display_df}}</p>
+            {{element.find_ads}}
         {%endfor%}
 
 

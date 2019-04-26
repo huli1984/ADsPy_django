@@ -25,6 +25,8 @@ long = 0.0
 resting_time = 30
 default_loc = False
 
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
 
 # Create your models here.
 class MySearch(models.Model):
@@ -36,10 +38,16 @@ class MySearch(models.Model):
     timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
     result_field = models.TextField()
     slug = models.SlugField()
-    latandlong = "0.000, 0.0000"
+    latandlong = models.CharField(max_length=50, default="Del Buono")
     my_search_query = models.CharField(max_length=250)
     wanna_check_distance = models.BooleanField(default=True)
     initialize = models.CharField(default="N", max_length=1)
+    csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
+    prof = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile/"
+    prof_one = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_one/"
+    prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
+    prof_three = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_three/"
+
 
     # Metadata
     class Meta:
@@ -53,10 +61,13 @@ class MySearch(models.Model):
     def get_url(self):
         return reverse("queries", kwargs={"id": self.id, "slug": self.slug})
 
+    def display_df(self):
+        return str("<p>" + str(pd.read_csv(os.path.join(self.csv_address, "result.csv"))) + "</p>")
+
     def find_ads(self):
         # starting Selenium
-        driver_ctrl = SeleniumCtrl()
-        driver_plain = SeleniumCtrl.browser
+        driver_ctrl = SeleniumCtrl(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address)
+        driver_plain = driver_ctrl.browser
         comfirm = "default"
 
         # get rid of Google's privacy pop up
@@ -100,13 +111,13 @@ class MySearch(models.Model):
                     df_backup = None
 
                 # initialize empty csv
-                df.to_csv("result.csv")
+                df.to_csv(self.csv_address + "result.csv")
             else:
                 # print("\nReading from previous database\n")
-                df = pd.read_csv("result.csv")
+                df = pd.read_csv(self.csv_address + "result.csv")
         else:
             # initialize DataFrame from CSV file
-            df = pd.read_csv("result.csv")
+            df = pd.read_csv(self.csv_address + "result.csv")
         changed = False
 
         # vars
@@ -121,11 +132,11 @@ class MySearch(models.Model):
             # wait for new page to be loaded
             not_loaded = True
             not_loaded_contract = True
-            Utilis.waiter()
+            Utilis.waiter(driver_plain)
 
             if not default_loc:
                 if not changed:
-                    changed = Utilis.change_geolocation()
+                    changed = Utilis.change_geolocation(driver_plain, page_source=driver_plain.page_source)
                     print("changed", changed)
 
             # as page is loaded, gather the source code of the page
@@ -154,9 +165,10 @@ class MySearch(models.Model):
                             changed = False
                             splittable = False
 
-                            df_latandlong = pd.read_csv("location.csv")
+                            df_latandlong = pd.read_csv(self.csv_address + "location.csv")
                             print(df_latandlong, "\nChoose also a registered location by name:\n")
-                            latandlong = input("here choose new geo-loc, insert latitude and longitude x.xxxx, y.yyyy format:\n->")
+                            # latandlong = input("here choose new geo-loc, insert latitude and longitude x.xxxx, y.yyyy format:\n->")
+                            latandlong = driver_ctrl.latandlong
 
                             # repeat form for geolocation -> to be reduced to fun(!)
                             while not splittable:
@@ -194,8 +206,8 @@ class MySearch(models.Model):
                             geo_preference_value = 'data:application/json,{"location": {"lat": ' + lat + ', "lng": ' + long + '}, "accuracy": 100.0}'
 
                             Utilis.reset_geo(geo_preference, geo_preference_value)
-                            Utilis.waiter()
-                            Utilis.change_geolocation()
+                            Utilis.waiter(driver_plain)
+                            Utilis.change_geolocation(driver_plain)
 
                         elif change_geo_loc.capitalize() == "N":
                             print("continue with previous: " + str(latandlong))
@@ -216,7 +228,7 @@ class MySearch(models.Model):
                                 google_bar.send_keys(self.my_search_query)
                                 google_bar.send_keys(Keys.ENTER)
 
-                                Utilis.waiter()
+                                Utilis.waiter(driver_plain)
 
                                 first_run = True
                                 my_raw_source = driver_ctrl.get_source()
@@ -270,8 +282,7 @@ class MySearch(models.Model):
                 print("\nstart entry\n")
                 print("tags doesn't exists\n")
                 print(
-                    str(count) + " count\n" + str(time_now) + "ADS  for key searched: \"" + str(self.my_search_query).replace("b'",
-                                                                                                                  "").replace(
+                    str(count) + " count\n" + str(time_now) + "ADS  for key searched: \"" + str(self.my_search_query).replace("b'", "").replace(
                         "'", "") + "\" NOT ACTIVE\n")
                 print("end entry\n\n")
 
@@ -336,7 +347,7 @@ class MySearch(models.Model):
                             data_alpha = {"n. in session": str(i), "datetime": str(time_now),
                                           "website title": Utilis.polish_list(item, terminal=False, string_mode=True),
                                           "kind": "ADS A",
-                                          "location (coordinates)": str(latandlong[0]) + "_" + str(latandlong[1]),
+                                          "location (coordinates)": str(driver_ctrl.latandlong[0]) + "_" + str(driver_ctrl.latandlong[1]),
                                           "location (name)": "to be implemented", "query": self.my_search_query}
                             data_alpha = pd.Series(data_alpha)
                             df = df.append(data_alpha, ignore_index=True)
@@ -353,8 +364,7 @@ class MySearch(models.Model):
                                     not_checked_range_a_yet = True
 
                                 if not_checked_range_a_yet:  # implement check range control for extracte h3 titles and not for tads boxes
-                                    check_range = PrepareLocation(lat, long, link, h3_data_alpha, my_raw_source, df,
-                                                                  str(time_now), is_tads=True).get_in_range()
+                                    check_range = PrepareLocation(driver_ctrl.lat, driver_ctrl.long, link, h3_data_alpha, my_raw_source, df, str(time_now), is_tads=True).get_in_range(driver_ctrl, soup)
                                     not_checked_range_a_yet = True
                             else:
                                 print(h3_data_alpha, "h3 data alpha should be null?")
@@ -392,7 +402,7 @@ class MySearch(models.Model):
 
                                 if not_checked_range_b_yet:
                                     check_range = PrepareLocation(lat, long, link, h3_data_beta, my_raw_source, df,
-                                                                  str(time_now), is_tadsb=True).get_in_range()
+                                                                  str(time_now), is_tadsb=True).get_in_range(driver_ctrl, soup)
                                     not_checked_range_b_yet = True
                             else:
                                 print(h3_data_beta, "h3 data beta should be null?")

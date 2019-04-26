@@ -1,0 +1,32 @@
+,index,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,2019-03-23 03:32:08.385759,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+1,,1,2019-03-23 03:32:08.385759,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+2,,2,2019-03-23 03:32:08.385759,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+3,,3,2019-03-23 03:32:08.385759,Pompe Funebri | La Savonese | OnoranzefunebriLaSavonese.com‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+4,,0,2019-03-23 03:32:08.385759,Pompe Funebri | Tortarolo &amp; Conti‎,ADS B,44.307208_8.482031,pompe funebri,False,No ADS,No ADS,to be implemented
+5,,1,2019-03-23 03:32:08.385759,Pompe Funebri | Onoranze Funebri Serra Vado L.‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,No ADS,to be implemented
+6,,0,2019-03-23 03:33:28.259629,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+7,,1,2019-03-23 03:33:28.259629,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+8,,2,2019-03-23 03:33:28.259629,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+9,,3,2019-03-23 03:33:28.259629,Pompe Funebri | Tortarolo &amp; Conti | pompefunebritortaroloeconti.com‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+10,,0,2019-03-23 03:34:23.653902,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+11,,1,2019-03-23 03:34:23.653902,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+12,,2,2019-03-23 03:34:23.653902,Pompe Funebri | Tortarolo &amp; Conti | pompefunebritortaroloeconti.com‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+13,,0,2019-03-23 03:34:23.653902,Onoranze Funebri | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri,False,No ADS,No ADS,to be implemented
+14,,1,2019-03-23 03:34:23.653902,Pompe Funebri | Onoranze Funebri Serra Vado L.‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,No ADS,to be implemented
+15,,0,2019-03-23 03:35:41.794044,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+16,,1,2019-03-23 03:35:41.794044,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+17,,0,2019-03-23 03:35:41.794044,Pompe Funebri | Tortarolo &amp; Conti‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,True,to be implemented
+18,,0,2019-03-23 03:36:59.627297,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+19,,1,2019-03-23 03:36:59.627297,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+20,,2,2019-03-23 03:36:59.627297,Pompe Funebri | La Savonese | OnoranzefunebriLaSavonese.com‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+21,,0,2019-03-23 03:36:59.627297,Onoranze Funebri | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri,False,No ADS,No ADS,to be implemented
+22,,1,2019-03-23 03:36:59.627297,Pompe Funebri | Tortarolo &amp; Conti‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,No ADS,to be implemented
+23,,0,2019-03-23 03:38:16.873903,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+24,,1,2019-03-23 03:38:16.873903,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+25,,0,2019-03-23 03:38:16.873903,Pompe Funebri | Tortarolo &amp; Conti‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,No ADS,to be implemented
+26,,0,2019-03-23 03:39:35.036561,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+27,,1,2019-03-23 03:39:35.036561,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented
+28,,0,2019-03-23 03:39:35.036561,Pompe Funebri | Tortarolo &amp; Conti‎,ADS B,44.307208_8.482031,pompe funebri,True,No ADS,No ADS,to be implemented
+29,,0,2019-03-23 03:40:52.410515,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri,False,False,False,to be implemented
+30,,1,2019-03-23 03:40:52.410515,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,pompe funebri,True,True,True,to be implemented

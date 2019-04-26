@@ -1,0 +1,20 @@
+Generated File. Do not edit.
+
+[HEADER]
+Version:0.19t:$
+Arch:x86_64-gcc3:$
+
+[PLUGINS]
+libflashplayer.so:$
+/usr/lib/flashplugin-installer/libflashplayer.so:$
+31.0.0.108:$
+1536827757000:0:0:0:0:$
+Shockwave Flash 31.0 r0:$
+Shockwave Flash:$
+2
+0:application/x-shockwave-flash:Shockwave Flash:swf:$
+1:application/futuresplash:FutureSplash Player:spl:$
+
+[INVALID]
+/usr/lib/mozilla/plugins/libgnome-shell-browser-plugin.so:$
+1478078554000:$
