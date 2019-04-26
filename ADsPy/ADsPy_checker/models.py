@@ -8,6 +8,9 @@ import time
 import datetime
 import os
 
+from redis import Redis
+from rq import Queue
+
 delay = 2  # seconds
 page_number = 1
 previousPageNumber = 0
@@ -64,7 +67,14 @@ class MySearch(models.Model):
     def display_df(self):
         return str("<p>" + str(pd.read_csv(os.path.join(self.csv_address, "result.csv"))) + "</p>")
 
-    def find_ads(self):
+    def find_ads(self, prof, prof_one, prof_two, prof_three, csv_address):
+
+        self.prof = prof
+        self.prof_one = prof_one
+        self.prof_two = prof_two
+        self.prof_three = prof_three
+        self.csv_address = csv_address
+
         # starting Selenium
         driver_ctrl = SeleniumCtrl(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address)
         driver_plain = driver_ctrl.browser
@@ -441,4 +451,9 @@ class MySearch(models.Model):
 
         driver_plain.close()
 
+    def find_ads_background(self):
+        print(self.find_ads, self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address)
+        q = Queue(connection=Redis())
+        data = q.enqueue(self.find_ads, self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address)
 
+        return str("<p>" + str(pd.read_csv(os.path.join(self.csv_address, "result.csv"))) + "</p>")
