@@ -65,9 +65,9 @@ class MySearch(models.Model):
         return reverse("queries", kwargs={"id": self.id, "slug": self.slug})
 
     def display_df(self):
-        csv_data = pd.read_csv(os.path.join(self.csv_address, "result.csv"))
+        csv_data = pd.read_csv(os.path.join(self.csv_address, "result{}.csv".format(self.my_search_query)))
         my_table = csv_data.to_html()
-        return "{}".format(my_table.replace("&lt;", "<"))
+        return "{}".format(my_table)
 
     def find_ads_background(self):
         print(self.csv_address, "csv address")
