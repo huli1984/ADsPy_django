@@ -65,7 +65,25 @@ class MySearch(models.Model):
         return reverse("queries", kwargs={"id": self.id, "slug": self.slug})
 
     def display_df(self):
-        csv_data = pd.read_csv(os.path.join(self.csv_address, "result{}.csv".format(self.my_search_query)))
+        try:
+            csv_data = pd.read_csv(os.path.join(self.csv_address, "result_{}.csv".format(self.my_search_query)), index_col=0)
+        except FileNotFoundError:
+            df = pd.DataFrame()
+            df["alpha"] = 0
+            df["n. in session"] = ""
+            df["datetime"] = datetime.datetime.now()
+            df["website title"] = ""
+            df["kind"] = ""
+            df["location (coordinates)"] = ""
+            df["location (name)":] = ""
+            df["query"] = ""
+            df["presence at 5 km"] = ""
+            df["presence at 10 km"] = ""
+            df["presence at 20 km"] = ""
+            df = df.reset_index()
+            df.to_csv(os.path.join(self.csv_address, "result_{}.csv".format(self.my_search_query)))
+            csv_data = df
+
         my_table = csv_data.to_html()
         return "{}".format(my_table)
 

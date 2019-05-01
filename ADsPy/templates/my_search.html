@@ -6,17 +6,26 @@
 
 </head>
 <body>
+
+    <div id="side-column">
+        <ul>
+            {%for element in object_list%}
+                <li>{{element.my_search_query}} || {{element.latandlong}}</li> <!--there's need to create a sort of df with performed or enqueued researches-->
+            {%endfor%}
+        </ul>
+    </div>
+
     <div>
         {%for element in object_list%}
         <a href="{{element.get_url}}"><h1>{{element.my_query}}</h1></a>
-            <h2>{{element.geolocation}}</h2>
-            <h3>{{element.timestamp_now}}</h3>
+            <h2>Geolocalizzazione di riferimento: {{element.geolocation}}</h2>
+            <h3>Data e ora: {{element.timestamp_now}}</h3>
             <p>{{element.result_field|safe|linebreaks|truncatewords_html:50}}</p>
             </br>
             {%if element.display_df%}
                 <div>{{element.display_df|safe}}</div>
             {%endif%}
-            {{element.find_ads_background}}
+        {{element.find_ads_background}}
         {%endfor%}
 
 

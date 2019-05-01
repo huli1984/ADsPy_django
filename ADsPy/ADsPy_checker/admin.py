@@ -13,5 +13,4 @@ class MySearchAdmin(admin.ModelAdmin):
     class Meta:
         model = MySearch
 
-
 admin.site.register(MySearch, MySearchAdmin)
