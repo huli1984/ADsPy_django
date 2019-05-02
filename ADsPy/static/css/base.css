@@ -1,0 +1,22 @@
+table {
+
+  border: 1px solid black;
+
+}
+
+
+th {
+
+    text-align: center;
+    font-size: 1.3em;
+    color: #004a20;
+
+}
+
+
+table.dataframe.result_table{
+
+    text-align: center;
+    font-size: 1em;
+
+}

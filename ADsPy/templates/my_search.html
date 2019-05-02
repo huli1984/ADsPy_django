@@ -1,12 +1,5 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>My Search Summary</title>
-
-</head>
-<body>
-
+{%extends "base.html"%}
+    {%block content%}
     <div id="side-column">
         <ul>
             {%for element in object_list%}
@@ -43,6 +36,4 @@
                 {% endif %}
             </span>
     </div>
-
-</body>
-</html>
+    {%endblock content%}

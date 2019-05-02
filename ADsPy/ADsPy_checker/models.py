@@ -84,7 +84,10 @@ class MySearch(models.Model):
             df.to_csv(os.path.join(self.csv_address, "result_{}.csv".format(self.my_search_query)))
             csv_data = df
 
-        my_table = csv_data.to_html()
+        pd.set_option("display.max_colwidth", -1)
+        csv_data = csv_data.drop(columns="index")
+        csv_data = csv_data.drop(columns="alpha")
+        my_table = csv_data.to_html(classes="result_table")
         return "{}".format(my_table)
 
     def find_ads_background(self):
