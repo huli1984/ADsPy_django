@@ -93,6 +93,6 @@ class MySearch(models.Model):
 
     def find_ads_background(self):
         print(self.csv_address, "csv address")
-        manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance)
+        manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance, self.latandlong)
         q = Queue(connection=Redis())
         q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)
