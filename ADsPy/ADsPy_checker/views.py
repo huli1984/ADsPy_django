@@ -9,6 +9,16 @@ from django.template import RequestContext
 
 def my_search(request):
 
+    # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
+    if (request.GET.get("bottone_prova")):
+        print("impulso bottone catturato", request.GET.get("textbox"))
+        for elem in MySearch.objects.all():
+            if elem.my_search_query == request.GET.get("textbox"):
+                print(elem.my_search_query)
+    else:
+        print("nothing happened")
+    # fine sezione bottone
+
     context = RequestContext(request)
 
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)

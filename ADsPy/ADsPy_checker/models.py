@@ -50,6 +50,7 @@ class MySearch(models.Model):
     prof_one = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_one/"
     prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
     prof_three = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_three/"
+    job_timeout = models.CharField(max_length=6)
 
 
     # Metadata
@@ -94,4 +95,4 @@ class MySearch(models.Model):
         print(self.csv_address, "csv address")
         manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance)
         q = Queue(connection=Redis())
-        q.enqueue(manager.find_ads, self.csv_address, job_timeout=43200)
+        q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)

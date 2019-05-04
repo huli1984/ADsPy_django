@@ -1,16 +1,26 @@
 {%extends "base.html"%}
     {%block content%}
-    <div id="side-column">
-        <ul>
+    <div class="wrapper">
+    <div id="sidebar">
+        <div class="sidebar-header">
+            <h3>Bootstrap Sidebar</h3>
+        </div>
+
+        <ul class="list-unstyled components">
             {%for element in object_list%}
-                <li>{{element.my_search_query}} || {{element.latandlong}}</li> <!--there's need to create a sort of df with performed or enqueued researches-->
+                <li class="active">{{element.my_search_query}} || {{element.latandlong}}</li> <!--there's need to create a sort of df with performed or enqueued researches-->
             {%endfor%}
         </ul>
+    </div>
     </div>
 
     <div>
         {%for element in object_list%}
         <a href="{{element.get_url}}"><h1>{{element.my_query}}</h1></a>
+        <form action="#" method="get">
+            <!--<input type="text" value="{{element.my_search_query}}" name="textbox" size="1" />-->
+            <input type="submit" class="btn" value="launch search" name="bottone_prova" />
+        </form>
             <h2>Geolocalizzazione di riferimento: {{element.geolocation}}</h2>
             <h3>Data e ora: {{element.timestamp_now}}</h3>
             <p>{{element.result_field|safe|linebreaks|truncatewords_html:50}}</p>
@@ -20,20 +30,19 @@
             {%endif%}
         {{element.find_ads_background}}
         {%endfor%}
-
-
-
     </div>
 
     <div class="pagination">
             <span class="step-links">
-                {% if page_obj.has_previous %}
-                    <a href="?page={{ page_obj.previous_page_number }}">previous</a>
-                {% endif %}
+                {%if page_obj.has_previous%}
+                    <a href="?page={{page_obj.previous_page_number}}">previous</a>
+                {%endif%}
 
-                {% if page_obj.has_next %}
-                    <a href="?page={{ page_obj.next_page_number }}">next</a>
-                {% endif %}
+                {%if page_obj.has_next%}
+                    <a href="?page={{page_obj.next_page_number}}">next</a>
+                {%endif%}
             </span>
     </div>
     {%endblock content%}
+
+
