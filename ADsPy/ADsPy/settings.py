@@ -40,6 +40,9 @@ INSTALLED_APPS = [
     'ADsPy_checker',
 ]
 
+INSTALLED_APPS += ["djsupervisor"]
+INSTALLED_APPS += ["django_rq"]
+
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -123,3 +126,18 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 MEDIA_ROOT = os.path.join(BASE_DIR, "media/ADsPy/")
 MEDIA_URL = "media/"
+
+RQ_QUEUES = {
+    'default': {
+        'HOST': os.getenv('REDIS_HOST', 'localhost'),
+        'PORT': 6379,
+        'DB': 0,
+        'DEFAULT_TIMEOUT': 360,
+    },
+    'low': {
+        'HOST': os.getenv('REDIS_HOST', 'localhost'),
+        'PORT': 6379,
+        'DB': 0,
+        'DEFAULT_TIMEOUT': 360,
+    }
+}

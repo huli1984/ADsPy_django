@@ -9,6 +9,9 @@ from adspy import ADsPyManager
 
 from redis import Redis
 from rq import Queue
+import djsupervisor
+import supervisor
+
 
 
 def print_all_elements(elem):

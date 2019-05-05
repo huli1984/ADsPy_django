@@ -25,7 +25,7 @@
             <h3>Data e ora: {{element.timestamp_now}}</h3>
             </br>
             {%if element.display_df%}
-                <div>{{element.display_df|safe}}</div>
+                <div>{{element.display_df|safe|truncatewords_html:150}}</div>
             {%endif%}
         {%endfor%}
     </div>
