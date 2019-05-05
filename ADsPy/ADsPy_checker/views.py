@@ -34,7 +34,7 @@ def find_ads_background(el):
     print("started function")
     manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2])
     q = Queue(connection=Redis())
-    q.enqueue(manager.find_ads, el[6], job_timeout=el[5])
+    q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
 
 
 def my_search(request):
@@ -45,7 +45,6 @@ def my_search(request):
         for elem in MySearch.objects.all():
             if elem.my_search_query == request.GET.get("textbox"):
                 print(elem.my_search_query, "my search query")
-                # print(print_all_elements(elem), "element list if check in passed")
                 find_ads_background(print_all_elements(elem))
 
     else:

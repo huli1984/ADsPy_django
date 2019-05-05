@@ -173,12 +173,63 @@
 171,,0,0,2019-05-04 16:23:35.718213,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
 172,,0,1,2019-05-04 16:23:35.718213,La Generale Pompe Funebri | A Genova da Oltre 40 Anni‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
 173,,0,2,2019-05-04 16:23:35.718213,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
-174,,0,0,2019-05-05 02:36:37.742469,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
-175,,0,1,2019-05-05 02:36:37.742469,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
-176,,0,2,2019-05-05 02:36:37.742469,Pompe Funebri | Servizi Funebri Completi | lacodevillese.it‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
-177,,0,3,2019-05-05 02:36:37.742469,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,,,,to be implemented
-178,,0,0,2019-05-05 02:37:05.187844,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
-179,,0,1,2019-05-05 02:37:05.187844,Pompe Funebri | Servizi Funebri Completi | lacodevillese.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
-180,,0,2,2019-05-05 02:37:05.187844,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
-181,,0,3,2019-05-05 02:37:05.187844,Onoranze Funebri a Genova | Assistenza Seria e Completa‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
-182,,0,0,2019-05-05 02:37:05.187844,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,True,True,,to be implemented
+174,,0,0,2019-05-05 02:36:37.742469,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+175,,0,1,2019-05-05 02:36:37.742469,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+176,,0,2,2019-05-05 02:36:37.742469,Pompe Funebri | Servizi Funebri Completi | lacodevillese.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+177,,0,3,2019-05-05 02:36:37.742469,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+178,,0,0,2019-05-05 02:36:37.742469,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+179,,0,0,2019-05-05 02:38:37.288181,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+180,,0,1,2019-05-05 02:38:37.288181,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+181,,0,2,2019-05-05 02:38:37.288181,Pompe Funebri | Servizi Funebri Completi | lacodevillese.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+182,,0,3,2019-05-05 02:38:37.288181,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+183,,0,0,2019-05-05 02:38:37.288181,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+184,,0,0,2019-05-05 02:40:36.992074,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+185,,0,1,2019-05-05 02:40:36.992074,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+186,,0,2,2019-05-05 02:40:36.992074,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+187,,0,3,2019-05-05 02:40:36.992074,Pompe Funebri | Servizi Funebri Completi | lacodevillese.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+188,,0,0,2019-05-05 02:40:36.992074,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+189,,0,0,2019-05-05 02:42:36.051896,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+190,,0,1,2019-05-05 02:42:36.051896,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+191,,0,0,2019-05-05 02:42:36.051896,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+192,,0,1,2019-05-05 02:42:36.051896,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+193,,0,2,2019-05-05 02:42:36.051896,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+194,,0,0,2019-05-05 02:44:35.276833,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+195,,0,1,2019-05-05 02:44:35.276833,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS A,44.393906_8.958207,Pompe funebri,False,False,False,to be implemented
+196,,0,2,2019-05-05 02:44:35.276833,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+197,,0,0,2019-05-05 02:44:35.276833,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,No ADS,False,to be implemented
+198,,0,1,2019-05-05 02:44:35.276833,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,No ADS,True,to be implemented
+199,,0,0,2019-05-05 02:46:34.548033,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+200,,0,0,2019-05-05 02:46:34.548033,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+201,,0,1,2019-05-05 02:46:34.548033,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+202,,0,2,2019-05-05 02:46:34.548033,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+203,,0,0,2019-05-05 02:48:33.576761,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+204,,0,0,2019-05-05 02:48:33.576761,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+205,,0,1,2019-05-05 02:48:33.576761,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+206,,0,2,2019-05-05 02:48:33.576761,Pompe Funebri | Servizi Funebri Completi‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+207,,0,0,2019-05-05 02:50:32.602844,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+208,,0,0,2019-05-05 02:50:32.602844,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+209,,0,1,2019-05-05 02:50:32.602844,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+210,,0,2,2019-05-05 02:50:32.602844,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+211,,0,0,2019-05-05 02:52:32.096617,Pompe Funebri | Esperienza e Discrezione | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+212,,0,0,2019-05-05 02:52:32.096617,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,No ADS,to be implemented
+213,,0,1,2019-05-05 02:52:32.096617,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,No ADS,to be implemented
+214,,0,2,2019-05-05 02:52:32.096617,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,No ADS,to be implemented
+215,,0,0,2019-05-05 02:54:30.445022,Pompe Funebri | Esperienza e Discrezione | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+216,,0,0,2019-05-05 02:54:30.445022,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+217,,0,1,2019-05-05 02:54:30.445022,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,False,to be implemented
+218,,0,2,2019-05-05 02:54:30.445022,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,True,to be implemented
+219,,0,0,2019-05-05 02:56:29.784128,Pompe Funebri | Esperienza e Discrezione | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+220,,0,0,2019-05-05 02:56:29.784128,Pompe Funebri | Servizi Funebri Completi‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,No ADS,to be implemented
+221,,0,1,2019-05-05 02:56:29.784128,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,False,No ADS,to be implemented
+222,,0,2,2019-05-05 02:56:29.784128,Pompe Funebri Genova | Funerali Economici e di Lusso‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,True,No ADS,to be implemented
+223,,0,0,2019-05-05 02:58:28.741805,Pompe Funebri | Esperienza e Discrezione | asef.it‎,ADS A,44.393906_8.958207,Pompe funebri,True,True,True,to be implemented
+224,,0,0,2019-05-05 02:58:28.741805,Pompe Funebri | La Codevillese a Voghera‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,,,to be implemented
+225,,0,1,2019-05-05 02:58:28.741805,Impresa di Pompe Funebri | Ferrari a Genova‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,,,to be implemented
+226,,0,2,2019-05-05 02:58:28.741805,La Generale Pompe Funebri | Esperienza da più di 40 anni‎,ADS B,44.393906_8.958207,Pompe funebri,No ADS,,,to be implemented
+227,,0,0,2019-05-05 03:01:19.933109,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+228,,0,1,2019-05-05 03:01:19.933109,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+229,,0,2,2019-05-05 03:01:19.933109,Pompe Funebri | Onoranze Funebri Ferro | pompefunebriferrovarazze.it‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+230,,0,3,2019-05-05 03:01:19.933109,Pompe Funebri | La Savonese | OnoranzefunebriLaSavonese.com‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+231,,0,0,2019-05-05 03:01:19.933109,Pompe Funebri | Del Buono‎,ADS B,44.307208_8.482031,Pompe funebri,No ADS,False,False,to be implemented
+232,,0,1,2019-05-05 03:01:19.933109,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS B,44.307208_8.482031,Pompe funebri,No ADS,False,False,to be implemented
+233,,0,2,2019-05-05 03:01:19.933109,Pompe Funebri | Onoranze Funebri Serra Vado L.‎,ADS B,44.307208_8.482031,Pompe funebri,No ADS,True,True,to be implemented
