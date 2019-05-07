@@ -1,0 +1,21 @@
+{% extends "admin/base.html" %}
+
+{% load i18n %}
+
+{% block title %}{{ title }} | {% trans 'for Seppia web' %}
+{% endblock title%}
+
+{% block branding %}
+
+    <style type="text/css">
+    #header
+    {
+        background-color: #004a20;
+    }
+    </style>
+    <h1 id="site-name">{% trans 'ADsPy - Manager' %}</h1>
+
+{% endblock branding%}
+
+{% block nav-global %}
+{% endblock nav-global%}

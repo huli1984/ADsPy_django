@@ -2,6 +2,8 @@ from django.db import models
 from django.urls import reverse
 from adspy import ADsPyManager
 from selenium.webdriver.common.keys import Keys
+from django.utils.safestring import mark_safe
+from django.apps import apps
 import pandas as pd
 import bs4 as BS
 import time
@@ -29,11 +31,18 @@ resting_time = 30
 default_loc = False
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
+
+
+
 
 
 # Create your models here.
 class MySearch(models.Model):
     """A typical class defining a model, derived from the Model class."""
+
+    csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
+
 
     # Fields
     my_query = models.CharField(max_length=250)
@@ -45,7 +54,6 @@ class MySearch(models.Model):
     my_search_query = models.CharField(max_length=250)
     wanna_check_distance = models.BooleanField(default=True)
     initialize = models.CharField(default="N", max_length=1)
-    csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
     prof = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile/"
     prof_one = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_one/"
     prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
@@ -96,3 +104,6 @@ class MySearch(models.Model):
         manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance, self.latandlong)
         q = Queue(connection=Redis())
         q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)
+
+
+

@@ -1,9 +1,14 @@
 from django.urls import path
 from django.conf.urls import url
 from . import views as mysearch_views
+from django.contrib import admin
 from django.views.generic import ListView, DetailView
 from .models import MySearch
 
+# Admin Site Config
+admin.sites.AdminSite.site_header = 'My site admin header'
+admin.sites.AdminSite.site_title = 'My site admin title'
+admin.sites.AdminSite.index_title = 'My site admin index'
 
 urlpatterns = [
 
