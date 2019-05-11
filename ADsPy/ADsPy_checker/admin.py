@@ -6,16 +6,13 @@ from django.apps import apps
 from .models import MySearch
 import os
 import pandas as pd
+import bs4 as BS
+import re
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 css_path = BASE_DIR + "/ADsPy_checker/static/ADsPy/css/"
 js_path = BASE_DIR + "/ADsPy_checker/static/ADsPy/js/"
 csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
-
-
-def process_data_model():
-    my_search = apps.get_model(app_label="ADsPy_checker", model_name="MySearch")
-    return my_search.process_data()
 
 
 class MySearchAdmin(admin.ModelAdmin):
@@ -24,6 +21,31 @@ class MySearchAdmin(admin.ModelAdmin):
     list_filter = ["my_query", "geolocation"]
     search_fields = ["my_query", "result_field", "geolocation"]
     prepopulated_fields = {"slug": ("my_query",)}
+
+    def add_view(self, request, form_url='', extra_context=None):
+        extra_context = extra_context or {}
+        extra_context['location_list'] = self.process_data_model()
+        return super().add_view(request, form_url, extra_context=extra_context)
+
+    def change_view(self, request, object_id, form_url='', extra_context=None):
+        extras = extra_context or {}
+        extras['location_list'] = self.process_data_model()
+        return super().add_view(request, form_url, extra_context=extras)
+
+    def process_data_model(self):
+        location_list = pd.read_csv("{}location.csv".format(csv_address))
+        result_list = location_list.drop(columns="Unnamed: 0")
+        result_list = result_list.to_html()
+        html_soup = BS.BeautifulSoup(result_list, "html.parser")
+        tds = html_soup.findAll("td")
+        for i in range(0, len(tds)):
+            if i%2 == 0:
+                tds[i].string.replace_with('<input id=\"button_' + str(i) + '\" onclick="fillTargetContainer(\'button_' + str(i) + '\')" style="width: 100%; height: 100%; background-color: #92a992;" class="location-input" type="button" value="' + tds[i].text +'">')
+            else:
+                tds[i].replace_with("<td style='border-bottom-color: #92a992'>" + tds[i].text)
+
+        html_soup = re.sub(re.compile(r"<th>(?:\d+</th>)"), "<th class='to-hide'>", str(html_soup))
+        return html_soup.replace('&lt;', '<').replace('&gt;', '/>') # .replace("<td>", "<td style='background-color: #92a992'>")
 
     class Meta:
         model = MySearch

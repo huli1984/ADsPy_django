@@ -12,10 +12,9 @@
             <a href="{% url 'admin:view_on_site' content_type_id original.pk %}" class="viewsitelink">{% trans "View on site" %}</a>
 
         </li>
-        {%for object in object_list%}
-        <p>{{object.process_data_model}}</p>
-        <p>new paragraph</p>
-        {%endfor%}
     {% endif %}
+{% endblock %}
 
+{% block after_field_sets %}
+    <p>{{ location_list|safe }}</p>
 {% endblock %}

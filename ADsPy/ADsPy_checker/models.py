@@ -34,9 +34,6 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
 
-
-
-
 # Create your models here.
 class MySearch(models.Model):
     """A typical class defining a model, derived from the Model class."""
@@ -59,7 +56,6 @@ class MySearch(models.Model):
     prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
     prof_three = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_three/"
     job_timeout = models.CharField(max_length=6)
-
 
     # Metadata
     class Meta:

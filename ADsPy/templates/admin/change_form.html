@@ -1,6 +1,92 @@
 {% extends "admin/change_form.html" %}
 {% load i18n admin_urls %}
+
+{% block branding %}
+ <style type="text/css">
+
+        @media (max-width: 768px){
+
+            #table-container{
+                position: relative;
+                padding: 12px 14px;
+
+            }
+
+            .dataframe{
+                width: 100%;
+                border: none;
+                padding: 12px 14px;
+            }
+
+        }
+
+        @media (max-width: 916px) and (min-width: 768px){
+
+            td {
+                padding: unset ;
+            }
+
+            #table-container{
+                position: element(#content-main);
+                transform: translate(60%,-91%);
+            }
+
+            .dataframe{
+                border: none;
+            }
+
+        }
+
+        @media (max-width: 1024px) and (min-width: 916px){
+
+            td {
+                padding: unset ;
+            }
+
+            #table-container{
+                position: element(#content-main);
+                transform: translate(55%,-91%);
+
+            }
+
+            .dataframe{
+                border: none;
+            }
+        }
+
+        @media (max-width: 2025px) and (min-width: 1024px){
+
+            td {
+                padding: unset ;
+            }
+
+            #table-container{
+                position: element(#content-main);
+                transform: translate(55%,-83%);
+
+            }
+
+            .dataframe{
+                border: none;
+            }
+
+        }
+
+        #header{
+            background-color: #004a20;
+        }
+
+        td {
+            padding: unset;
+            vertical-align: unset;
+        }
+
+
+    </style>
+{% endblock branding %}
+
 {% block object-tools-items %}
+
     <li>
         <a href="{% url opts|admin_urlname:'history' original.pk|admin_urlquote %}" class="historylink">{% trans "History" %}</a>
     </li>
@@ -10,6 +96,34 @@
     {% if has_absolute_url %}
         <li>
             <a href="{% url 'admin:view_on_site' content_type_id original.pk %}" class="viewsitelink">{% trans "View on site" %}</a>
+
         </li>
     {% endif %}
 {% endblock %}
+
+{% block field_sets %}
+    {% for fieldset in adminform %}
+        {% include "admin/includes/fieldset.html" %}
+    {% endfor %}
+    <div id="table-container">{{ location_list|safe }}</div>
+    <script>
+        function fillTargetContainer(myId) {
+            var button = document.getElementById(myId);
+            document.getElementById("id_latandlong").value = button.value;
+        }
+    </script>
+{% endblock %}
+
+{% block after_field_sets %}
+{% endblock %}
+
+
+{% block submit_buttons_bottom %}
+    <div class="submit-row">
+    <input style="background-color: darkseagreen" type="button" name="change-list" value="modify list">
+    <input type="submit" value="Salva" class="default" name="_save">
+    <input type="submit" value="Salva e aggiungi un altro" name="_addanother">
+    <input type="submit" value="Salva e continua le modifiche" name="_continue">
+    </div>
+{% endblock %}
+
