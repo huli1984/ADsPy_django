@@ -17,10 +17,10 @@ csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
 class MySearchAdmin(admin.ModelAdmin):
 
-    list_display = ["__str__", "timestamp_now", "geolocation", "job_timeout"]
-    list_filter = ["my_query", "geolocation"]
-    search_fields = ["my_query", "result_field", "geolocation"]
-    prepopulated_fields = {"slug": ("my_query",)}
+    list_display = ["__str__", "timestamp_now", "latandlong", "job_timeout"]
+    list_filter = ["my_search_query", "latandlong"]
+    search_fields = ["my_search_query", "result_field", "latandlong"]
+    prepopulated_fields = {"slug": ("my_search_query",)}
 
     def add_view(self, request, form_url='', extra_context=None):
         extra_context = extra_context or {}

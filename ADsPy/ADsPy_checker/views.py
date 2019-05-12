@@ -9,9 +9,9 @@ from adspy import ADsPyManager
 
 from redis import Redis
 from rq import Queue
+import time
 import djsupervisor
 import supervisor
-
 
 
 def print_all_elements(elem):
@@ -32,7 +32,7 @@ def print_all_elements(elem):
 
 def find_ads_background(el):
     print("started function")
-    manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2])
+    manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
     q = Queue(connection=Redis())
     q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
 
@@ -41,11 +41,12 @@ def my_search(request):
 
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
     if (request.GET.get("bottone_prova")):
-        print("impulso bottone catturato", request.GET.get("textbox"))
+        # print("impulso bottone catturato", request.GET.get("textbox"))
         for elem in MySearch.objects.all():
             if elem.my_search_query == request.GET.get("textbox"):
-                print(elem.my_search_query, "my search query")
-                find_ads_background(print_all_elements(elem))
+                element_list = print_all_elements(elem)
+                element_list.append(request.GET.get("idbox"))
+                find_ads_background(element_list)
 
     else:
         print("nothing happened")

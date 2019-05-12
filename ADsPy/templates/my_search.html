@@ -16,8 +16,9 @@
 
     <div>
         {%for element in object_list%}
-        <a href="{{element.get_url}}"><h1>{{element.my_query}}</h1></a>
+        <a href="{{element.get_url}}"><h1>{{element.my_search_query}}</h1></a>
         <form action="#" method="get">
+            <input type="hidden" value="{{element.find_post_id}}" name="idbox" size="1" />
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
         </form>
