@@ -30,7 +30,7 @@ class MySearchAdmin(admin.ModelAdmin):
     def change_view(self, request, object_id, form_url='', extra_context=None):
         extras = extra_context or {}
         extras['location_list'] = self.process_data_model()
-        return super().add_view(request, form_url, extra_context=extras)
+        return super().change_view(request, object_id, form_url, extra_context=extras)
 
     def process_data_model(self):
         location_list = pd.read_csv("{}location.csv".format(csv_address))
