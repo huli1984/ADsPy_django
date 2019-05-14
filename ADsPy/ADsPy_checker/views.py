@@ -1,11 +1,14 @@
 from django.shortcuts import render
 from django.conf.urls import url
+from django.views.decorators.csrf import csrf_protect
+
 from . import views as post_views
 from django.views.generic import ListView, DetailView
 from .models import MySearch
 from django.shortcuts import render_to_response
 from django.template import RequestContext
 from adspy import ADsPyManager
+from django.http import HttpResponse, HttpResponseRedirect
 
 from redis import Redis
 from rq import Queue
@@ -38,27 +41,26 @@ def find_ads_background(el):
 
 
 def my_search(request):
-
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
-    if (request.GET.get("bottone_prova")):
-        # print("impulso bottone catturato", request.GET.get("textbox"))
+    if request.POST.get("bottone_prova"):
         for elem in MySearch.objects.all():
-            if elem.my_search_query == request.GET.get("textbox"):
+            print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
+            if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
-                element_list.append(request.GET.get("idbox"))
+                element_list.append(request.POST.get("idbox"))
                 find_ads_background(element_list)
-
+                return HttpResponseRedirect("/")
+            else:
+                print("pukkeka pukkea")
     else:
-        print("nothing happened")
+        print("nothing happened", request)
     # fine sezione bottone
 
-    context = RequestContext(request)
-
+    # context = RequestContext(request)
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
-
     context_dict = {"object_list": page_elements}
 
-    return render_to_response("my_search.html", context_dict, context)
+    return render(request, "my_search.html", context=context_dict)
 
 
 def create_table(request):

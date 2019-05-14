@@ -69,7 +69,7 @@ class MySearch(models.Model):
 
     def display_df(self):
         try:
-            csv_data = pd.read_csv(os.path.join(self.csv_address, "result_{}.csv".format(self.my_search_query)), index_col=0)
+            csv_data = pd.read_csv(os.path.join(self.csv_address, "result_{}_{}.csv".format(self.my_search_query, self.id)), index_col=0)
         except FileNotFoundError:
             df = pd.DataFrame()
             df["alpha"] = 0
@@ -93,11 +93,11 @@ class MySearch(models.Model):
         my_table = csv_data.to_html(classes="result_table")
         return "{}".format(my_table)
 
-    def find_ads_background(self):
-        print(self.csv_address, "csv address")
-        manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance, self.latandlong)
-        q = Queue(connection=Redis())
-        q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)
+    # def find_ads_background(self):
+    #     print(self.csv_address, "csv address")
+    #     manager = ADsPyManager(self.prof, self.prof_one, self.prof_two, self.prof_three, self.csv_address, self.my_search_query, self.initialize, self.wanna_check_distance, self.latandlong)
+    #     q = Queue(connection=Redis())
+    #     q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)
 
     def find_post_id(self):
         return self.id
