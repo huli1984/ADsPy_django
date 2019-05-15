@@ -9,6 +9,7 @@ import bs4 as BS
 import time
 import datetime
 import os
+import bs4 as BS
 
 from redis import Redis
 from rq import Queue

@@ -56,7 +56,6 @@ def my_search(request):
         print("nothing happened", request)
     # fine sezione bottone
 
-    # context = RequestContext(request)
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
     context_dict = {"object_list": page_elements}
 

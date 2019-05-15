@@ -4,19 +4,32 @@ table {
 
 }
 
-
 th {
 
     text-align: center;
     font-size: 1.3em;
-    color: #004a20;
+    color: #ffffff;
 
 }
 
+.geo-title{
+    color: #004a20;
+}
 
 table.dataframe.result_table{
 
     text-align: center;
     font-size: 1em;
+    border-top: none;
 
 }
+
+thead tr{
+    background-color: #004a20;
+    border: none;
+}
+
+thead tr th{
+    border-radius: 10px;
+}
+
