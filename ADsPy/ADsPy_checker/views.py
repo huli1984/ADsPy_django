@@ -62,6 +62,28 @@ def my_search(request):
     return render(request, "my_search.html", context=context_dict)
 
 
+def queries(request, id, slug):
+    if request.POST.get("bottone_prova"):
+        for elem in MySearch.objects.all():
+            print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
+            if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
+                element_list = print_all_elements(elem)
+                element_list.append(request.POST.get("idbox"))
+                find_ads_background(element_list)
+                return HttpResponseRedirect("/")
+            else:
+                print("pukkeka pukkea")
+    else:
+        print("nothing happened", request)
+    # fine sezione bottone
+
+    page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
+    page_elements.append(int(id))
+    context_dict = {"object_list": page_elements}
+
+    return render(request, "queries.html", context=context_dict)
+
+
 def create_table(request):
     pass
 

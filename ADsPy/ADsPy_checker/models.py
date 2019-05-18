@@ -92,7 +92,7 @@ class MySearch(models.Model):
         csv_data = csv_data.drop(columns="index")
         csv_data = csv_data.drop(columns="alpha")
         my_table = csv_data.to_html(classes="result_table")
-        return "{}".format(my_table)
+        return "{}".format(my_table).replace("&lt;", "<").replace("&gt;", ">")
 
     # def find_ads_background(self):
     #     print(self.csv_address, "csv address")

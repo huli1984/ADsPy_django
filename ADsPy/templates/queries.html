@@ -1,13 +1,11 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>detailed queries</title>
-</head>
-<body>
-    <h1>{{object.my_query}}</h1>
-    <h2>{{object.timestamp_now}}</h2>
-    <h4>{{object.geolocation}}</h4>
-    <p>{{object.result_field|safe|linebreaks}}</p>
-</body>
-</html>
+{%extends "base.html"%}
+    {%block content%}
+    {%for item in object_list%}
+        {% if object_list.3 == item.find_post_id %}
+            <h1>{{item.my_search_query}}</h1>
+            <h2>{{item.timestamp_now}}</h2>
+            <h4>{{item.latandlong}}</h4>
+            <div class="table-box">{{item.display_df|safe}}</div>
+        {%endif%}
+    {%endfor%}
+    {%endblock content%}
