@@ -1,0 +1,22 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,2019-05-15 01:26:04.479329,pompe funebri | Funerale A Milano A 1.254 Euro | nebulonghi.it‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+1,,0,1,2019-05-15 01:26:04.479329,cerchiTURATI onoranze funebri? | siamo solo in via bauer 19‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+2,,0,2,2019-05-15 01:26:04.479329,Pompe Funebri | Agenzia Funebre La Novese | pompefunebrilanovese.it‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+3,,0,3,2019-05-15 01:26:04.479329,Pompe Funebri | Gruppo a Milano | onoranzetrivulzio.com‎,ADS A,45.478771_9.186033,Pompe funebri,True,True,True,to be implemented
+4,,0,0,2019-05-15 01:26:04.479329,Pompe Funebri | Agenzia Funebre Panzeri‎,ADS B,45.478771_9.186033,Pompe funebri,No ADS,No ADS,False,to be implemented
+5,,0,1,2019-05-15 01:26:04.479329,Pompe Funebri | A Seregno‎,ADS B,45.478771_9.186033,Pompe funebri,No ADS,No ADS,False,to be implemented
+6,,0,2,2019-05-15 01:26:04.479329,Pompe Funebri | Agenzia Funebre Ballabio‎,ADS B,45.478771_9.186033,Pompe funebri,No ADS,No ADS,True,to be implemented
+7,,0,0,2019-05-15 01:28:05.172250,pompe funebri | Funerale A Milano A 1.254 Euro | nebulonghi.it‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+8,,0,1,2019-05-15 01:28:05.172250,Pompe Funebri | Agenzia Funebre La Novese | pompefunebrilanovese.it‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+9,,0,2,2019-05-15 01:28:05.172250,Pompe Funebri | Agenzia Funebre Panzeri | onoranzepanzeri.com‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+10,,0,3,2019-05-15 01:28:05.172250,cerchiTURATI onoranze funebri? | siamo solo in via bauer 19‎,ADS A,45.478771_9.186033,Pompe funebri,True,True,True,to be implemented
+11,,0,0,2019-05-15 01:28:05.172250,Pompe Funebri | A Seregno‎,ADS B,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+12,,0,1,2019-05-15 01:28:05.172250,Pompe Funebri | Gruppo a Milano‎,ADS B,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+13,,0,2,2019-05-15 01:28:05.172250,Pompe Funebri | Agenzia Funebre Ballabio‎,ADS B,45.478771_9.186033,Pompe funebri,True,True,True,to be implemented
+14,,0,0,2019-05-15 01:30:05.416131,pompe funebri | Funerale A Milano A 1.254 Euro | nebulonghi.it‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+15,,0,1,2019-05-15 01:30:05.416131,Pompe Funebri | Agenzia Funebre Panzeri | onoranzepanzeri.com‎,ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+16,,0,2,2019-05-15 01:30:05.416131,"TURATI, non confondetevi con ® | Pompe funebri 1892 di Niguarda‎",ADS A,45.478771_9.186033,Pompe funebri,False,False,False,to be implemented
+17,,0,3,2019-05-15 01:30:05.416131,Pompe Funebri | Agenzia Funebre La Novese | pompefunebrilanovese.it‎,ADS A,45.478771_9.186033,Pompe funebri,True,True,True,to be implemented
+18,,0,0,2019-05-15 01:30:05.416131,Pompe Funebri | A Seregno‎,ADS B,45.478771_9.186033,Pompe funebri,False,False,No ADS,to be implemented
+19,,0,1,2019-05-15 01:30:05.416131,Pompe Funebri | Gruppo a Milano‎,ADS B,45.478771_9.186033,Pompe funebri,False,False,No ADS,to be implemented
+20,,0,2,2019-05-15 01:30:05.416131,Pompe Funebri | Agenzia Funebre Ballabio‎,ADS B,45.478771_9.186033,Pompe funebri,True,True,No ADS,to be implemented

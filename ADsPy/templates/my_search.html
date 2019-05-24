@@ -23,6 +23,20 @@
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
         </form>
+
+<!--__________________________________________________________________________________________-->
+    <form>
+    <label for="chkPassport">
+    <input type="checkbox" id="chkPassport" />Remove Presence at kms</label>
+    <hr />
+    <div id="dvPassport" style="display: none">Passport Number:
+        <input type="text" id="txtPassportNumber" />
+    </div>
+    </form>
+<!--__________________________________________________________________________________________-->
+
+
+
         <h2>Geolocalizzazione di riferimento: <span class="geo-title">{{element.latandlong}}</span></h2>
             <h3>Data e ora: {{element.timestamp_now}}</h3>
             </br>
@@ -45,4 +59,6 @@
     </div>
     {%endblock content%}
 
+{%block javascript%}
+{%endblock javascript%}
 

@@ -5,7 +5,78 @@
             <h1>{{item.my_search_query}}</h1>
             <h2>{{item.timestamp_now}}</h2>
             <h4>{{item.latandlong}}</h4>
-            <div class="table-box">{{item.display_df|safe}}</div>
+            <form action="{{''}}" method="post">
+                {% csrf_token %}
+                <input type="hidden" value="{{item.find_post_id}}" name="idbox" size="1" />
+                <input type="hidden" value="{{item.my_search_query}}" name="textbox" size="1" />
+                <input type="submit" class="btn" value="launch search" name="bottone-richiesta" />
+            </form>
+
+            <form action="{{''}}" method="get">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <label for="removePresence">
+                <input type="checkbox" name="removePresence" id="removePresence" />Remove Presence at kms</label>
+            </form>
+
+            </br>
+            <div class="table-box" id="table-container">{{item.display_df|safe}}</div>
         {%endif%}
     {%endfor%}
+
+    {%block javascript%}
+    <script>
+        // event listener
+        btn = document.getElementById("removePresence");
+        var pathname = window.location.pathname;
+
+         var xmlhttp = new XMLHttpRequest();
+         xmlhttp.onclick = function() {
+        if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
+           if (xmlhttp.status === 200) {
+           }
+           else if (xmlhttp.status === 400) {
+              alert('There was an error 400');
+           }
+           else {
+               alert('something else other than 200 was returned');
+           }
+        }
+    };
+
+    xmlhttp.open("GET", pathname, true);
+    xmlhttp.send();
+
+        btn.addEventListener("click", function(){
+            var xhr = new XMLHttpRequest();
+
+
+            //xhr.open("GET", pathname + "condition?id=removePresence");
+            xhr.open("GET", pathname + "no_presence.html");
+            //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlcoded");
+            xhr.onload = function () {
+                // success check (between 200 and 299)
+                if (xhr.status >= 200 && xhr.status < 300 && xhr.responseText !== "merda") {
+                    var my_switch = true;
+                    hidePresenceAtKm(my_switch, xhr, xhr.status, xhr.responseText)
+                }
+                else {
+                    console.log("merda secca", xhr.status);
+                }
+            };
+            //xhr.send(encodeURI(pathname));
+            xhr.send();
+        });
+
+        // inserire questo nel base.html una volta completo
+        function hidePresenceAtKm(my_switch, xhr, status, text) {
+            console.log("check point");
+            console.log(status, xhr);
+            if (my_switch === true){
+                document.getElementById("table-container").innerHTML = text;
+            }
+        }
+        // end function
+    </script>
+    {%endblock javascript%}
     {%endblock content%}

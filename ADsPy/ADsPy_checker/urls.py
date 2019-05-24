@@ -11,12 +11,11 @@ admin.sites.AdminSite.site_title = 'My site admin title'
 admin.sites.AdminSite.index_title = 'My site admin index'
 
 urlpatterns = [
-
     url(r'^$', mysearch_views.my_search, name="my_search"),
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/$', mysearch_views.queries, name="queries"),
+    url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/no_presence.html', mysearch_views.no_presence, name="no_presence"),
     url(r'^contacts', mysearch_views.contacts, name="contacts"),
     url(r'^result-table', mysearch_views.create_table, name="results"),
-
 ]
 
 
