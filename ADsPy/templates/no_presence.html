@@ -1,8 +1,9 @@
 {%extends "clean.html"%}
-    {%block content%}
-    {%for item in object_list%}
-        {% if object_list.3 == item.find_post_id %}
-           {{item.display_df|safe}}
+{% load adspy_extras %}
+{%block content%}
+    {%for obj in object_list%}
+        {% if object_list.3 == obj.find_post_id %}
+            {% call_method obj "display_df" "no_presence"|safe %}
         {%endif%}
     {%endfor%}
-    {%endblock content%}
+{%endblock content%}

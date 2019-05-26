@@ -9,6 +9,7 @@ from rq import Queue
 import time
 import re
 from .models import MySearch
+from django import template
 
 
 def print_all_elements(elem):
@@ -114,4 +115,6 @@ def create_table(request):
 
 def contacts(request):
     return render(request, "contacts.html")
+
+
 
