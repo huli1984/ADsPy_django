@@ -1,9 +1,11 @@
 {%extends "clean.html"%}
 {% load adspy_extras %}
+
 {%block content%}
+    {{request.GET.get}}
     {%for obj in object_list%}
         {% if object_list.3 == obj.find_post_id %}
-            {% call_method obj "display_df" "no_presence"|safe %}
+            {% call_method obj "display_df" request.GET|safe %}
         {%endif%}
     {%endfor%}
 {%endblock content%}

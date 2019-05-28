@@ -92,7 +92,9 @@ class MySearch(models.Model):
         #     q.enqueue(manager.find_ads, self.csv_address, job_timeout=self.job_timeout)"""
 
     def display_df(self, param=None):
-        print("param", param)
+        no_presence = False
+        no_query = False
+
         try:
             csv_data = pd.read_csv(os.path.join(self.csv_address, "result_{}_{}.csv".format(self.my_search_query, self.id)), index_col=0)
         except FileNotFoundError:
@@ -113,26 +115,35 @@ class MySearch(models.Model):
             csv_data = df
 
         if not param:
-            print("no_param ON")
             pd.set_option("display.max_colwidth", -1)
             csv_data = csv_data.drop(columns="index")
             csv_data = csv_data.drop(columns="alpha")
-            my_table = csv_data.to_html(classes="result_table")
-
-        elif param == "no_presence":
-            pd.set_option("display.max_colwidth", -1)
-            csv_data = csv_data.drop(columns="index")
-            csv_data = csv_data.drop(columns="alpha")
-            csv_data = csv_data.drop(columns="presence at 5 km")
-            csv_data = csv_data.drop(columns="presence at 10 km")
-            csv_data = csv_data.drop(columns="presence at 20 km")
+            csv_data = csv_data.drop(columns="location (name)")
             my_table = csv_data.to_html(classes="result_table")
 
         else:
-            print("in else param")
+            print("param", param)
+            print("")
+
             pd.set_option("display.max_colwidth", -1)
             csv_data = csv_data.drop(columns="index")
             csv_data = csv_data.drop(columns="alpha")
+            csv_data = csv_data.drop(columns="location (name)")
+
+            if "'no_presence': ['1']" in param:
+                csv_data = csv_data.drop(columns="presence at 5 km")
+                csv_data = csv_data.drop(columns="presence at 10 km")
+                csv_data = csv_data.drop(columns="presence at 20 km")
+                no_presence = True
+            elif ("'no_presence': ['0']" in param) and no_presence:
+                no_presence = False
+
+            if "'no_query': ['1']" in param:
+                csv_data = csv_data.drop(columns="query")
+                no_query = True
+            elif ("'no_query': ['0']" in param) and no_query:
+                no_query = False
+
             my_table = csv_data.to_html(classes="result_table")
 
         return "{}".format(my_table).replace("&lt;", "<").replace("&gt;", ">")

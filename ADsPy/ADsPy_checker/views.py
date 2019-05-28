@@ -8,6 +8,7 @@ from redis import Redis
 from rq import Queue
 import time
 import re
+import json
 from .models import MySearch
 from django import template
 
@@ -79,27 +80,12 @@ def queries(request, id, slug):
     return render(request, "queries.html", context=context_dict)
 
 
-def no_presence(request, id, slug):
-    if request.POST.get("bottone-richiesta"):
-        for elem in MySearch.objects.all():
-            print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
-            if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
-                element_list = print_all_elements(elem)
-                element_list.append(request.POST.get("idbox"))
-                find_ads_background(element_list)
-                return HttpResponseRedirect("/")
-            else:
-                print("pukkeka pukkea")
-
-    else:
-        print("nothing happens")
-
-    # fine sezione bottone
+def select(request, id, slug):
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
     page_elements.append(int(id))
     context_dict = {"object_list": page_elements}
 
-    return render(request, "no_presence.html", context=context_dict)
+    return render(request, "select.html", context=context_dict)
 
 
 def update_table(request):

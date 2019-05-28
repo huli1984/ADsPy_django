@@ -16,7 +16,11 @@
                 {% csrf_token %}
                 {{ form.as_p }}
                 <label for="removePresence">
-                <input type="checkbox" name="removePresence" id="removePresence" />Remove Presence at kms</label>
+                <input class="checkbox" type="checkbox" name="removePresence" id="removePresence" />Remove Presence at kms</label>
+                <label for="removeQuery">
+                <input class = checkbox type="checkbox" name="removeQuery" id="removeQuery" />Remove Query</label>
+                <label for="submit">
+                <input class="btn" type="button" name="submit" value="drop column(s)" id="submit" /></label>
             </form>
 
             </br>
@@ -26,12 +30,41 @@
 
     {%block javascript%}
     <script>
+        function highligh() {
+            var arrayAds;
+        arrayAds = document.getElementsByTagName("td");
+        for (var i=0; i<arrayAds.length; i++) {
+	        if (arrayAds[i].innerHTML == "ADS A" | arrayAds[i].innerHTML == "True" | arrayAds[i].innerHTML == "0") {
+		        arrayAds[i].setAttribute("style", "font-weight: 650; color: #38291F");
+            }
+        }
+
+        var arrayRow;
+        arrayRow = document.getElementsByTagName("tr");
+        for (var j=0; j<arrayRow.length; j++){
+            var htmlString = arrayRow[j].innerHTML;
+            if (htmlString.includes("<h3>")){
+                arrayRow[j].setAttribute("style", "background-color: grey; color: darkgrey");
+                var myLink = arrayRow[j].getElementsByTagName("a");
+                var myAdsText = arrayRow[j].getElementsByTagName("td");
+                for (var k=0; k<myLink.length; k++){
+                    myLink[k].setAttribute("style", "color: #7898bb");
+                }
+                for (var w=0; w<myAdsText.length; w++){
+                    if (myAdsText[w].innerHTML == "ADS A" | myAdsText[w].innerHTML == "True" | myAdsText[w].innerHTML == "0") {
+                        myAdsText[w].setAttribute("style", "font-weight: 650; color: #806d61");
+                    }
+                }
+
+            }
+        }
+        }
         // event listener
-        btn = document.getElementById("removePresence");
+        var btn = document.getElementById("submit");
         var pathname = window.location.pathname;
 
-         var xmlhttp = new XMLHttpRequest();
-         xmlhttp.onclick = function() {
+        var xmlhttp = new XMLHttpRequest();
+        xmlhttp.onclick = function() {
         if (xmlhttp.readyState === XMLHttpRequest.DONE) {   // XMLHttpRequest.DONE == 4
            if (xmlhttp.status === 200) {
            }
@@ -39,7 +72,7 @@
               alert('There was an error 400');
            }
            else {
-               alert('something else other than 200 was returned');
+              alert('something else other than 200 was returned');
            }
         }
     };
@@ -48,24 +81,37 @@
     xmlhttp.send();
 
         btn.addEventListener("click", function(){
+
+            var getString = "?no_presence=0&no_query=0";
+            var btn_check_1 = document.getElementById("removePresence");
+            if (btn_check_1.checked === true){
+                getString = getString.replace("no_presence=0", "&no_presence=1")
+            }
+            else {getString = getString.replace("no_presence=1", "&no_presence=0")}
+
+            var btn_check_2 = document.getElementById("removeQuery");
+            if (btn_check_2.checked === true){
+                getString = getString.replace("no_query=0", "no_query=1")
+            }
+            else {getString = getString.replace("no_query=1", "&no_query=0")}
+
             var xhr = new XMLHttpRequest();
 
-
-            //xhr.open("GET", pathname + "condition?id=removePresence");
-            xhr.open("GET", pathname + "no_presence.html");
-            //xhr.setRequestHeader("Content-Type", "application/x-www-form-urlcoded");
+            xhr.open("GET", pathname + "select.html" + getString);
             xhr.onload = function () {
+
                 // success check (between 200 and 299)
                 if (xhr.status >= 200 && xhr.status < 300 && xhr.responseText !== "merda") {
                     var my_switch = true;
                     hidePresenceAtKm(my_switch, xhr, xhr.status, xhr.responseText)
+                    highligh();
                 }
                 else {
                     console.log("merda secca", xhr.status);
                 }
             };
             //xhr.send(encodeURI(pathname));
-            xhr.send();
+            xhr.send(JSON.stringify({message: getString}));
         });
 
         // inserire questo nel base.html una volta completo
