@@ -6,13 +6,30 @@
             <h2>{{item.timestamp_now}}</h2>
             <h4>{{item.latandlong}}</h4>
             <form action="{{''}}" method="post">
+                <div class="form-group">
                 {% csrf_token %}
                 <input type="hidden" value="{{item.find_post_id}}" name="idbox" size="1" />
                 <input type="hidden" value="{{item.my_search_query}}" name="textbox" size="1" />
                 <input type="submit" class="btn" value="launch search" name="bottone-richiesta" />
+                </div>
             </form>
 
             <form action="{{''}}" method="get">
+                 <div class="form-group">
+                {% csrf_token %}
+                {{ form.as_p }}
+                 <label for="setStartTime">
+                     <input class="form-control" type="text" id="setStartTime" placeholder="dd/mm/yyyy hh:mm"></label>
+                 <label for="setEndTime">
+                     <input class="form-control" type="text" id="setEndTime" placeholder="dd/mm/yyyy hh:mm"></label>
+                 </label>`
+                <!--<label for="filterDate">
+                <input class="btn" type="button" name="filterDate" value="filter date" id="filterDate" /></label>-->
+                 </div>
+            </form>
+
+            <form action="{{''}}" method="get">
+                <div class="form-group">
                 {% csrf_token %}
                 {{ form.as_p }}
                 <label for="removePresence">
@@ -20,8 +37,11 @@
                 <label for="removeQuery">
                 <input class = checkbox type="checkbox" name="removeQuery" id="removeQuery" />Remove Query</label>
                 <label for="submit">
-                <input class="btn" type="button" name="submit" value="drop column(s)" id="submit" /></label>
+                <input class="btn" type="button" name="submit" value="drop column(s) and row(s)" id="submit" /></label>
+                </div>
             </form>
+
+
 
             </br>
             <div class="table-box" id="table-container">{{item.display_df|safe}}</div>
@@ -82,7 +102,40 @@
 
         btn.addEventListener("click", function(){
 
-            var getString = "?no_presence=0&no_query=0";
+            var getString = "?no_presence=0&no_query=0&start=0&end=0";
+
+            var box_start = document.getElementById("setStartTime");
+            var box_end = document.getElementById("setEndTime");
+
+            var reStart = /\d\d\/\d\d\/\d\d\d\d/;
+            var myStringStart = box_start.value;
+
+            if (reStart.exec(myStringStart)){
+                 var startDate = reStart.exec(myStringStart)[0];
+                console.log(startDate);
+                getString = getString.replace("start=0", "start=" + startDate);
+            }
+            else {
+                if (box_start.value){
+                    alert("insert a valid date in start field");
+                }
+                console.log("value not conformed", reStart.exec(myStringStart));
+            }
+
+            var reEnd = /\d\d\/\d\d\/\d\d\d\d/;
+            var myStringEnd = box_end.value;
+            if (reEnd.exec(myStringEnd)){
+                 var endDate = reEnd.exec(myStringEnd)[0];
+                console.log(endDate);
+                getString = getString.replace("end=0", "end=" + endDate);
+            }
+            else {
+                if (box_end.value){
+                    alert("insert a valid date in end field");
+                }
+                console.log("value not conformed", reEnd.exec(myStringEnd));
+            }
+
             var btn_check_1 = document.getElementById("removePresence");
             if (btn_check_1.checked === true){
                 getString = getString.replace("no_presence=0", "&no_presence=1")
@@ -116,8 +169,8 @@
 
         // inserire questo nel base.html una volta completo
         function hidePresenceAtKm(my_switch, xhr, status, text) {
-            console.log("check point");
-            console.log(status, xhr);
+            //console.log("check point");
+            //console.log(status, xhr);
             if (my_switch === true){
                 document.getElementById("table-container").innerHTML = text;
             }

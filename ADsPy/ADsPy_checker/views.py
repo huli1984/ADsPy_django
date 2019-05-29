@@ -68,7 +68,6 @@ def queries(request, id, slug):
                 return HttpResponseRedirect("/")
             else:
                 print("pukkeka pukkea")
-
     else:
         print("nothing happens")
 

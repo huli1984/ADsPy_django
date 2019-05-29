@@ -1,6 +1,7 @@
 from django.db import models
 from django.urls import reverse
 import pandas as pd
+import re
 import time
 import datetime
 import os
@@ -143,6 +144,24 @@ class MySearch(models.Model):
                 no_query = True
             elif ("'no_query': ['0']" in param) and no_query:
                 no_query = False
+
+            if "start': ['0']" in param:
+                pass
+            else:
+                # find the date in string format:
+                # it needs to be converted in date object
+                if re.findall(re.compile(r"'start': \['\d\d\/\d\d\/\d\d\d\d'\]"), param):
+                    start_string_raw = re.findall(re.compile(r"'start': \['\d\d\/\d\d\/\d\d\d\d'\]"), param)[0]
+                    print(start_string_raw.replace("'start': ['", "").replace("']", ""))
+
+            if "end': ['0']" in param:
+                pass
+            else:
+                # find the date in string format:
+                # it needs to be converted in date object
+                if re.findall(re.compile(r"'end': \['\d\d\/\d\d\/\d\d\d\d'\]"), param):
+                    start_string_raw = re.findall(re.compile(r"'end': \['\d\d\/\d\d\/\d\d\d\d'\]"), param)[0]
+                    print(start_string_raw.replace("'end': ['", "").replace("']", ""))
 
             my_table = csv_data.to_html(classes="result_table")
 
