@@ -3,6 +3,8 @@ from .models import MySearch
 from adspy import ADsPyManager
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView
 from redis import Redis
 from rq import Queue
@@ -36,6 +38,7 @@ def find_ads_background(el):
     q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
 
 
+@login_required
 def my_search(request):
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
     if request.POST.get("bottone_prova"):
@@ -57,6 +60,7 @@ def my_search(request):
     return render(request, "my_search.html", context=context_dict)
 
 
+@login_required
 def queries(request, id, slug):
     if request.POST.get("bottone-richiesta"):
         for elem in MySearch.objects.all():

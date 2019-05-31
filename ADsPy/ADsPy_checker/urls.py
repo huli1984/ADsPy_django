@@ -1,4 +1,4 @@
-from django.urls import path
+from django.urls import path, include
 from django.conf.urls import url
 from . import views as mysearch_views
 from django.contrib import admin
@@ -16,6 +16,7 @@ urlpatterns = [
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/select.html', mysearch_views.select, name="no_presence"),
     url(r'^contacts', mysearch_views.contacts, name="contacts"),
     url(r'^result-table', mysearch_views.create_table, name="results"),
+    path('accounts/', include('django.contrib.auth.urls'))
 ]
 
 
