@@ -47,7 +47,8 @@ class MySearch(models.Model):
     prof_one = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_one/"
     prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
     prof_three = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_three/"
-    job_timeout = models.CharField(max_length=6)
+    job_timeout = models.CharField(max_length=9, default=900)
+    insert_job_timeout = models.CharField(max_length=5, name="job timeout", default="00:15")
 
     # Metadata
     class Meta:
