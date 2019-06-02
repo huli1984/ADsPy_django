@@ -48,6 +48,7 @@ def my_search(request):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
                 find_ads_background(element_list)
+                # nel returns mettere la pagina di provenienza, se cosa veloce
                 return HttpResponseRedirect("/")
             else:
                 print("pukkeka pukkea")

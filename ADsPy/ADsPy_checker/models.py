@@ -92,6 +92,11 @@ class MySearch(models.Model):
             csv_data = csv_data.drop(columns="index")
             csv_data = csv_data.drop(columns="alpha")
 
+            try:
+                csv_data = csv_data.drop(columns="location (name)")
+            except KeyError:
+                pass
+
             my_table = csv_data.to_html(classes="result_table")
 
         else:
@@ -145,6 +150,11 @@ class MySearch(models.Model):
                 print(csv_data, "csv in function")
             else:
                 print(csv_data, "csv in else")
+                pass
+
+            try:
+                csv_data = csv_data.drop(columns="location (name)")
+            except KeyError:
                 pass
 
             my_table = csv_data.to_html(classes="result_table")

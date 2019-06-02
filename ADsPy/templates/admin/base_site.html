@@ -1,5 +1,6 @@
-{% extends "admin/base.html" %}
+{% extends "admin:admin/base_site.html" %}
 
+{%load static%}
 {% load i18n %}
 
 {% block title %}{{ title }} | {% trans 'for Seppia web' %}
@@ -8,10 +9,76 @@
 {% block branding %}
 
     <style type="text/css">
+
     #header
     {
-        background-color: #004a20;
+        background-color: #1f356e;
+        display: block;
     }
+
+    #changelist-filter
+    {
+        border-width: 1px !important;
+        border-color: #205493 !important;
+    }
+
+    #button_0
+    {
+        background-color: #93d7ff;
+    }
+
+    #result_list{
+
+    }
+
+    a:link, a:visited, td{
+        font-size: 1.5em;
+    }
+
+    #user-tools{
+        float: left;
+        position: relative;
+        left: auto;
+        padding-top: 3px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: 0px;
+        margin-left: 35px;
+    }
+
+    #user-tools a {
+        border: none;
+    }
+
+    div#user-tools#text{
+        font-weight: 400;
+        font-size: 1.5em;
+    }
+
+    .object-tools li{
+        position: relative;
+        height: auto;
+        line-height: 30px;
+        font-size: 2em;
+        display: block;
+        float: left;
+     }
+
+    .object-tools a:link, .object-tools a:visited {
+        display: block;
+        float: left;
+        padding: 3px 12px;
+        background: #153799;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff;
+    }
+
+    tbody td a.addlink{font-size: 1em !important;}
+    tbody td a.changelink{font-size: 1em !important;}
+
     </style>
     <h1 id="site-name">{% trans 'ADsPy - Manager' %}</h1>
 

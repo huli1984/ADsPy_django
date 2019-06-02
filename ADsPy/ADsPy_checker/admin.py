@@ -40,7 +40,7 @@ class MySearchAdmin(admin.ModelAdmin):
         tds = html_soup.findAll("td")
         for i in range(0, len(tds)):
             if i%2 == 0:
-                tds[i].string.replace_with('<input id=\"button_' + str(i) + '\" onclick="fillTargetContainer(\'button_' + str(i) + '\')" style="width: 100%; height: 100%; background-color: #92a992;" class="location-input" type="button" value="' + tds[i].text +'">')
+                tds[i].string.replace_with('<input id=\"button_' + str(i) + '\" onclick="fillTargetContainer(\'button_' + str(i) + '\')" style="width: 100%; height: 100%; /*background-color: #92a992;*/" class="location-input" type="button" value="' + tds[i].text +'">')
             else:
                 tds[i].replace_with("<td style='border-bottom-color: #92a992'>" + tds[i].text)
 

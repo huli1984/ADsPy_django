@@ -1,14 +1,33 @@
 {%extends "base.html"%}
+    {%block branding%}
+        <style>
+            @media only screen and (max-width: 1199px) {#sidebar{display:none;}}
+            .wrapper {display: flex; align-items: stretch; float: right;}
+            #sidebar {min-width: 250px; max-width: 250px; background: #385b38; color: #fff; transition: all 0.3s;}
+            #sidebar.active {margin-left: -250px;}
+            a[data-toggle="collapse"] {position: relative;}
+            .dropdown-toggle::after {display: block; position: absolute; top: 50%; right: 20px; transform: translateY(-50%);}
+            body > div > div:nth-child(3) > div:nth-child(6) > table{font-size: 0.89em;}
+            #sidebar .sidebar-header {padding: 20px; background: #0e5223;}
+            #sidebar ul.components {border-bottom: 1px solid #295b3e; margin-left: 15px;}
+            #sidebar ul p {color: #fff; padding: 10px;}
+            #sidebar ul li a {padding: 10px; font-size: 1.1em; display: block;}
+            #sidebar ul li a:hover {color: #295b3e; background: #fff;}
+            #sidebar ul li.active > a, a[aria-expanded="true"] {color: #fff; background:#385b38; white-space: nowrap;}
+            table.dataframe.result_table{font-size: 0.89em;}
+            .bg-light{border-bottom: 2px solid #0e5223;}
+        </style>
+    {%endblock branding%}
+
     {%block content%}
     <div class="wrapper">
     <div id="sidebar">
         <div class="sidebar-header">
-            <h3>Bootstrap Sidebar</h3>
+            <h3>Links to Queries</h3>
         </div>
-
         <ul class="list-unstyled components">
             {%for element in object_list%}
-                <li class="active">{{element.my_search_query}} || {{element.latandlong}}</li> <!--there's need to create a sort of df with performed or enqueued researches-->
+            <li class="active"><a href="/{{element.id}}/{{element.slug}}">{{element.my_search_query}} || {{element.latandlong}}</a></li> <!--there's need to create a sort of df with performed or enqueued researches-->
             {%endfor%}
         </ul>
     </div>
@@ -24,17 +43,6 @@
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
         </form>
 
-<!--__________________________________________________________________________________________-->
-    <form>
-    <label for="chkPassport">
-    <input type="checkbox" id="chkPassport" />Remove Presence at kms</label>
-    <hr />
-    <div id="dvPassport" style="display: none">Passport Number:
-        <input type="text" id="txtPassportNumber" />
-    </div>
-    </form>
-<!--__________________________________________________________________________________________-->
-
 
 
         <h2>Geolocalizzazione di riferimento: <span class="geo-title">{{element.latandlong}}</span></h2>
@@ -42,6 +50,8 @@
             </br>
             {%if element.display_df%}
                 <div>{{element.display_df|safe|truncatewords_html:150}}</div>
+                </br>
+                </br>
             {%endif%}
         {%endfor%}
     </div>

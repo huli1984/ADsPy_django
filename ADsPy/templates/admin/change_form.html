@@ -1,89 +1,116 @@
-{% extends "admin/change_form.html" %}
+{% extends "admin:admin/change_form.html" %}
+{% load i18n %}
 {% load i18n admin_urls %}
 
 {% block branding %}
+
  <style type="text/css">
 
-        @media (max-width: 816px){
+     #changelist-filter
+    {
+        border-width: 1px !important;
+        border-color: #205493 !important;
+    }
 
-            #table-container{
-                position: relative;
-                padding: 12px 14px;
+    #button_0
+    {
+        background-color: #93d7ff;
+    }
 
-            }
+    #result_list{
 
-            .dataframe{
-                width: 100%;
-                border: none;
-                padding: 12px 14px;
-            }
+    }
 
+    a:link, a:visited, td{
+        font-size: 1.5em;
+    }
+
+    #user-tools{
+        float: left;
+        position: relative;
+        left: auto;
+        padding-top: 3px;
+        font-weight: 400;
+        text-decoration: none;
+        letter-spacing: 0px;
+        margin-left: 35px;
+    }
+
+    #user-tools a {
+        border: none;
+    }
+
+    div#user-tools#text{
+        font-weight: 400;
+        font-size: 1.5em;
+    }
+
+    .object-tools li{
+        position: relative;
+        height: auto;
+        line-height: 30px;
+        font-size: 2em;
+        display: block;
+        float: left;
+     }
+
+    .object-tools a:link, .object-tools a:visited {
+        display: block;
+        float: left;
+        padding: 3px 12px;
+        background: #153799;
+        font-weight: 600;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+        color: #fff;
+    }
+
+        .form-row.field-slug{
+            display: none;
         }
 
-        @media (max-width: 916px) and (min-width: 816px){
-
-            td {
-                padding: unset ;
-            }
-
-            #table-container{
-                position: element(#content-main);
-                transform: translate(60%,-91%);
-            }
-
-            .dataframe{
-                border: none;
-            }
-
-        }
-
-        @media (max-width: 1024px) and (min-width: 916px){
-
-            td {
-                padding: unset ;
-            }
-
-            #table-container{
-                position: element(#content-main);
-                transform: translate(55%,-91%);
-
-            }
-
-            .dataframe{
-                border: none;
-            }
-        }
-
-        @media (max-width: 2025px) and (min-width: 1024px){
-
-            td {
-                padding: unset ;
-            }
-
-            #table-container{
-                position: element(#content-main);
-                transform: translate(55%,-83%);
-
-            }
-
-            .dataframe{
-                border: none;
-            }
-
+        #table-container{
+            margin-left: -20px;
+            padding-left: 0px;
+            width: 300px;
+            margin-right: 0px;
         }
 
         #header{
-            background-color: #004a20;
+            background-color: #1f356e;
         }
 
         td {
-            padding: unset;
+            padding-left: 5px;
+            padding-bottom: unset;
+            padding-top: unset;
             vertical-align: unset;
         }
+
+        table{
+            border:none;
+            border-collapse: collapse;
+        }
+
+        table td{font-size: 13px;}
 
         #content {
             padding: 40px 100px;
         }
+
+        #user-tools{
+            font-size: 1em;
+        }
+
+        #mysearch_form > div > fieldset > div.form-row.field-result_field > div > label{
+            display: none;
+        }
+        #id_result_field{
+            display: none;
+        }
+
+         #content-main > ul > li:nth-child(2) > a{display:none}
 
 
     </style>
