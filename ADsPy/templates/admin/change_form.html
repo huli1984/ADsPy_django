@@ -11,6 +11,10 @@
          display: block;
      }
 
+     #mysearch_form > div > fieldset > div.form-row.field-job_timeout{
+         display: none;
+     }
+
      #container{
         margin-left: auto;
         margin-right: auto;
@@ -121,7 +125,14 @@
             display: none;
         }
 
-         #content-main > ul > li:nth-child(2) > a{display:none}
+        #content-main > ul > li:nth-child(2) > a{display:none}
+        #timeout-warning{display:none;}
+        #timeout-help{color: #666;}
+        .submit-row input {
+            height: auto !important;
+            line-height: 15px;
+            margin: 0 0 0 5px;
+        }
 
 
     </style>
@@ -164,13 +175,16 @@
 <script>
     var actualJobTime = document.querySelector("#id_job_timeout");
     var jobTimeoutRow = document.querySelector("#mysearch_form > div > fieldset > div.form-row.field-job.timeout");
+    var button_1 = document.querySelector("#mysearch_form > div > div.submit-row > input[type=submit]:nth-child(3)");
+    var button_2 = document.querySelector("#mysearch_form > div > div.submit-row > input[type=submit]:nth-child(4)");
+    var button_3 = document.querySelector("#mysearch_form > div > div.submit-row > input.default");
     jobTimeoutRow.innerHTML = "<div>\n" +
         "\n" +
         "\n" +
         "                        <label class=\"required\" for=\"id_job timeout\">Job timeout:</label>\n" +
         "\n" +
         "                            <input type=\"text\" name=\"job timeout\" value=\"00:15\" class=\"vTextField\" maxlength=\"5\" required=\"\" id=\"id_job timeout\" oninput='inputJobTime(this)'>\n" +
-        "<p id=\"timeout-help\">insert query duration in hh:mm (hours:minutes)</p>\n" +
+        "<p id=\"timeout-help\">insert query duration in hh:mm (hours:minutes)<span id='timeout-warning' style='color: red;'> WARNING: input a correct time value with hh:mm (hours:minutes)</span></p>\n" +
         "\n" +
         "\n" +
         "\n" +
@@ -183,37 +197,45 @@
         // convert value from hh:mm to seconds
         if (!regex.test(myValue)){
             console.log("insert a correct formed input:.. ");
-            document.getElementById("timeout-help").style.color = "red";
-            /*jobTimeoutRow.innerHTML = "<div>\n" +
-        "\n" +
-        "\n" +
-        "                        <label class=\"required\" for=\"id_job timeout\">Job timeout:</label>\n" +
-        "\n" +
-        "                            <input type=\"text\" name=\"job timeout\" value=\"00:15\" class=\"vTextField\" maxlength=\"5\" required=\"\" id=\"id_job timeout\" oninput='inputJobTime(this)'>\n" +
-        "<p id=\"timeout-help\">insert query duration in hh:mm (hours:minutes)</p>\n" +
-        "\n" +
-        "\n" +
-        "\n" +
-        "                </div>" + "<p style='color: red;'> WARNING please insert value in the right format: hh:mm only</p>";*/
-            var saveButton = document.querySelector("#mysearch_form > div > div.submit-row > input.default");
-            saveButton.attr("disabled", "disabled");
+            document.getElementById("timeout-warning").style.display = "block";
             document.querySelector("#id_job\\ timeout").focus();
 
+            // disable save buttons due to error
+            button_1.setAttribute("type", "none");
+            button_1.style.backgroundColor = "grey";
+            button_1.style.color = "darkgrey";
+            button_2.setAttribute("type", "none");
+            button_2.style.backgroundColor = "grey";
+            button_2.style.color = "darkgrey";
+            button_3.setAttribute("type", "none");
+            button_3.style.backgroundColor = "grey";
+            button_3.style.color = "darkgrey";
+            button_3.style.width = "40px";
+
+
         } else {
-            console.log("is right");
-            document.getElementById("timeout-help").style.color = "#666";
+            // re enable buttons and revert to original style
+            document.getElementById("timeout-warning").style.display = "none";
+            button_1.setAttribute("type", "submit");
+            button_1.removeAttribute("style");
+            button_1.style.backgroundColor = "#79aec8;";
+            button_1.style.color = "white";
+            button_2.setAttribute("type", "submit");
+            button_2.removeAttribute("style");
+            button_2.style.backgroundColor = "#79aec8;";
+            button_2.style.color = "white";
+            button_3.setAttribute("type", "submit");
+            button_3.removeAttribute("style");
+            button_3.style.backgroundColor = "#79aec8;";
+            button_3.style.color = "white";
 
         }
         var splitted = myValue.split(":");
-        // console.log(splitted, "splitted");
         var hours = parseInt(splitted[0], 10);
-        // console.log(hours, "hours raw");
         var minutes = parseInt(splitted[1], 10);
-        // console.log(minutes, "minutes raw", splitted[1]);
         hours = hours*3600;
         minutes = minutes * 60;
         myValue = hours + minutes;
-        // console.log(myValue);
         actualJobTime.value = myValue.toString();
     }
 

@@ -40,6 +40,7 @@
             {% csrf_token %}
             <input type="hidden" value="{{element.find_post_id}}" name="idbox" size="1" />
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
+            <input type="hidden" value="{{element.job_timeout}}" name="timeout-box" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
         </form>
 
@@ -70,5 +71,18 @@
     {%endblock content%}
 
 {%block javascript%}
+<script>
+    function lockSearch(){
+        var classBtn = document.getElementsByClassName("btn");
+        var manipulateButton = function (){
+               console.log("triggered", classBtn[i]);
+        }
+        for (var i=0; i<classBtn.lenght; i++){
+            classBtn[i].addEventListener("click", manipulateButton, false);
+        }
+    }
+
+    lockSearch();
+</script>
 {%endblock javascript%}
 

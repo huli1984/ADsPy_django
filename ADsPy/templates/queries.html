@@ -1,7 +1,7 @@
 {%extends "base.html"%}
     {%block content%}
     {%for item in object_list%}
-        {% if object_list.3 == item.find_post_id %}
+        {% if object_list.3 == item.id %}
             <h1>{{item.my_search_query}}</h1>
             <h2>{{item.timestamp_now}}</h2>
             <h4>{{item.latandlong}}</h4>
@@ -45,6 +45,8 @@
 
             </br>
             <div class="table-box" id="table-container">{{item.display_df|safe}}</div>
+        {%else%}
+            <p>{{object_list.3}}_"{{item.find_post_id}}"_{{item.id}}</p>
         {%endif%}
     {%endfor%}
 

@@ -31,6 +31,13 @@ def print_all_elements(elem):
     return elemlist
 
 
+#def find_ads_background(el):
+#    print("started function")
+#    manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
+#    q = Queue(connection=Redis())
+#   q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
+
+
 def find_ads_background(el):
     print("started function")
     manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
@@ -41,21 +48,30 @@ def find_ads_background(el):
 @login_required
 def my_search(request):
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
+    print("merda")
+    print(request.POST.get("bottone_prova"), "request", request.method == 'POST')
+    print(request.GET.get("bottone_prova"), "request", request.method == 'GET')
     if request.POST.get("bottone_prova"):
         for elem in MySearch.objects.all():
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
+                print("\nelement list", element_list, "\n")
                 find_ads_background(element_list)
                 # nel returns mettere la pagina di provenienza, se cosa veloce
                 return HttpResponseRedirect("/")
             else:
                 print("pukkeka pukkea")
     else:
-        print("nothing happened", request)
+        print("nothing happened", request.POST)
+        print(request.POST.get("bottone_prova"), "request", request.method == 'POST')
+        append_index = True
     # fine sezione bottone
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
+    if append_index:
+        page_elements.append(request.GET.get("idbox"))
+    print(page_elements)
     context_dict = {"object_list": page_elements}
 
     return render(request, "my_search.html", context=context_dict)
