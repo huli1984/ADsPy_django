@@ -163,7 +163,7 @@ class MySearch(models.Model):
         return "{}".format(my_table).replace("&lt;", "<").replace("&gt;", ">")
 
     def find_post_id(self):
-        return self.id
+        return int(self.id)
 
 
 

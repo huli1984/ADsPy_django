@@ -13,6 +13,10 @@ import re
 import json
 from .models import MySearch
 from django import template
+from datetime import datetime
+import json
+
+no_run = False
 
 
 def print_all_elements(elem):
@@ -48,30 +52,21 @@ def find_ads_background(el):
 @login_required
 def my_search(request):
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
-    print("merda")
-    print(request.POST.get("bottone_prova"), "request", request.method == 'POST')
-    print(request.GET.get("bottone_prova"), "request", request.method == 'GET')
     if request.POST.get("bottone_prova"):
         for elem in MySearch.objects.all():
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
-                print("\nelement list", element_list, "\n")
                 find_ads_background(element_list)
                 # nel returns mettere la pagina di provenienza, se cosa veloce
                 return HttpResponseRedirect("/")
             else:
                 print("pukkeka pukkea")
-    else:
-        print("nothing happened", request.POST)
-        print(request.POST.get("bottone_prova"), "request", request.method == 'POST')
-        append_index = True
+    elif request.GET:
+        print("into GET", request)
     # fine sezione bottone
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
-    if append_index:
-        page_elements.append(request.GET.get("idbox"))
-    print(page_elements)
     context_dict = {"object_list": page_elements}
 
     return render(request, "my_search.html", context=context_dict)
@@ -79,22 +74,117 @@ def my_search(request):
 
 @login_required
 def queries(request, id, slug):
+    global no_run
+    control_id = None
+    control_slug = None
+    control_timeout = None
     if request.POST.get("bottone-richiesta"):
         for elem in MySearch.objects.all():
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
-                find_ads_background(element_list)
-                return HttpResponseRedirect("/")
+                control_id = elem.id
+                control_slug = elem.slug
+                control_timeout = elem.job_timeout
+                start_query_time = datetime.now()
+                data = {}
+                block_writing = False
+                try:
+                    with open('json_data_query') as json_file:
+                        data = json.loads(json_file.read())
+                        print("loading JSON in POST", data)
+                        json_file.close()
+                except (FileNotFoundError, TypeError) as e:
+                    print(e, "file not found?")
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump("", json_file)
+                        json_file.close()
+
+                print(data, "data check")
+                try:
+                    if int(data[str(control_id)]["start_query_time"]) + int(elem.job_timeout) >= int(datetime.now().strftime('%s')):
+                        no_run = True
+                        print("NO RUN ACTIVATED In POST views.py")
+                    else:
+                        # vedere se serve davvero buttare un no run dentro il json e recuperarlo: credo non serva affatto!! :D
+                        no_run = False
+                        print("no matches in POST")
+                        print(int(data[str(control_id)]["start_query_time"]) +  int(elem.job_timeout) )
+                        print(int(datetime.now().strftime('%s')))
+
+                except KeyError as e:
+                    print("POST: into exception: file creation", e)
+                    int(datetime.now().strftime('%s'))
+                    data[str(control_id)] = {"slug": control_slug, "id": control_id, "job_timeout": control_timeout, "start_query_time": int(start_query_time.strftime('%s')), "no_run": False}
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump(data, json_file)
+                        json_file.close()
+
+                if not no_run:
+                    find_ads_background(element_list)
+                else:
+                    print("cannot run query")
+
             else:
                 print("pukkeka pukkea")
     else:
-        print("nothing happens")
+        control_name = None
+        control_id = None
+        control_timeout = None
+        control_slug = None
+        request_mark = str(request).replace("<WSGIRequest: GET '/", "").replace("/'>", "")
+        request_slug = request_mark.split("/")[1]
+        request_id = request_mark.split("/")[0]
+
+        try:
+            with open('json_data_query') as json_file:
+                data = json.loads(json_file.read())
+        except FileNotFoundError:
+            print("no json file with running queries")
+
+        for elem in MySearch.objects.all():
+            if (elem.slug == request_slug) and (elem.id == int(request_id)):
+                control_name = elem.my_search_query
+                control_slug = elem.slug
+                control_id = elem.id
+                control_timeout = elem.job_timeout
+                start_query_time = datetime.now()
+
+                try:
+                    if int(data[str(control_id)]["start_query_time"]) + int(elem.job_timeout) >= int(datetime.now().strftime('%s')):
+                        block_writing = True
+                        print("NO RUN activated")
+                        print(int(datetime.now().strftime('%s')))
+                        data[str(control_id)]["no_run"] = True
+                        with open('json_data_query', 'w') as json_file:
+                            json.dump(data, json_file)
+                            json_file.close()
+                    else:
+                        block_writing = False
+                        data[str(control_id)]["no_run"] = False
+                        with open('json_data_query', 'w') as json_file:
+                            json.dump(data, json_file)
+                            json_file.close()
+                except (KeyError, TypeError, UnboundLocalError) as e:
+                    print("no match!", e)
+                    pass
+            else:
+                print(elem.id, request_id, type(elem.id), type(request_id))
+
+        print("into GET - queries.html", request.GET, request)
 
     # fine sezione bottone
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
+    if control_id and no_run:
+        print(control_id, "control id")
+        page_elements.append(str(control_id))
+        page_elements.append(control_slug)
+        page_elements.append("<p id=\"query-timeout-warning\">cannot send the same query within the query duration. Kill the query or contact an Administrator</p>")
+    else:
+        print("no control id")
     page_elements.append(int(id))
+    print(page_elements, "page elements")
     context_dict = {"object_list": page_elements}
 
     return render(request, "queries.html", context=context_dict)
