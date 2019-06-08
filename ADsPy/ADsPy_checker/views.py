@@ -34,7 +34,6 @@ def print_all_elements(elem):
 
     return elemlist
 
-
 #def find_ads_background(el):
 #    print("started function")
 #    manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
@@ -51,6 +50,8 @@ def find_ads_background(el):
 
 @login_required
 def my_search(request):
+    no_run = False
+    block_writing = False
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
     if request.POST.get("bottone_prova"):
         for elem in MySearch.objects.all():
@@ -58,9 +59,59 @@ def my_search(request):
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
-                find_ads_background(element_list)
+
                 # nel returns mettere la pagina di provenienza, se cosa veloce
-                return HttpResponseRedirect("/")
+                # return HttpResponseRedirect("/")
+
+                control_id = elem.id
+                control_slug = elem.slug
+                control_timeout = elem.job_timeout
+                start_query_time = datetime.now()
+                data = {"start_value": 0}
+                block_writing = False
+                try:
+                    with open('json_data_query') as json_file:
+                        data = json.loads(json_file.read())
+                        print("loading JSON in POST - mySearch", data)
+                        json_file.close()
+                except (FileNotFoundError, TypeError, json.decoder.JSONDecodeError) as e:
+                    print(e, "file not found or type error in my search")
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump("", json_file)
+                        json_file.close()
+
+                try:
+                    if int(data[str(control_id)]["start_query_time"]) + int(elem.job_timeout) >= int(
+                            datetime.now().strftime('%s')):
+                        no_run = True
+                        block_writing = True
+                        print("NO RUN ACTIVATED In POST views.py - MySearch")
+                    else:
+                        # vedere se serve davvero buttare un no run dentro il json e recuperarlo: credo non serva affatto!! :D
+                        no_run = False
+                        block_writing = False
+
+                except KeyError as e:
+                    print("POST: into exception: file creation - MySearch", e)
+                    data[str(control_id)] = {"slug": control_slug, "id": control_id, "job_timeout": control_timeout,
+                                             "start_query_time": int(start_query_time.strftime('%s')), "no_run": False}
+                    block_writing = True
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump(data, json_file)
+                        json_file.close()
+
+                if not block_writing:
+                    # updating JSON
+                    data[str(control_id)] = {"slug": control_slug, "id": control_id, "job_timeout": control_timeout,
+                                             "start_query_time": int(start_query_time.strftime('%s')), "no_run": False}
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump(data, json_file)
+                        json_file.close()
+
+                if not no_run:
+                    find_ads_background(element_list)
+                else:
+                    print("cannot start query -  main page")
             else:
                 print("pukkeka pukkea")
     elif request.GET:
@@ -74,7 +125,8 @@ def my_search(request):
 
 @login_required
 def queries(request, id, slug):
-    global no_run
+    no_run = False
+    block_writing = False
     control_id = None
     control_slug = None
     control_timeout = None
@@ -84,6 +136,7 @@ def queries(request, id, slug):
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
+
                 control_id = elem.id
                 control_slug = elem.slug
                 control_timeout = elem.job_timeout
@@ -105,18 +158,24 @@ def queries(request, id, slug):
                 try:
                     if int(data[str(control_id)]["start_query_time"]) + int(elem.job_timeout) >= int(datetime.now().strftime('%s')):
                         no_run = True
-                        print("NO RUN ACTIVATED In POST views.py")
+                        block_writing = True
                     else:
                         # vedere se serve davvero buttare un no run dentro il json e recuperarlo: credo non serva affatto!! :D
                         no_run = False
-                        print("no matches in POST")
-                        print(int(data[str(control_id)]["start_query_time"]) +  int(elem.job_timeout) )
-                        print(int(datetime.now().strftime('%s')))
+                        block_writing = False
 
                 except KeyError as e:
                     print("POST: into exception: file creation", e)
-                    int(datetime.now().strftime('%s'))
                     data[str(control_id)] = {"slug": control_slug, "id": control_id, "job_timeout": control_timeout, "start_query_time": int(start_query_time.strftime('%s')), "no_run": False}
+                    block_writing = True
+                    with open('json_data_query', 'w') as json_file:
+                        json.dump(data, json_file)
+                        json_file.close()
+
+                if not block_writing:
+                    # updating JSON
+                    data[str(control_id)] = {"slug": control_slug, "id": control_id, "job_timeout": control_timeout,
+                                             "start_query_time": int(start_query_time.strftime('%s')), "no_run": False}
                     with open('json_data_query', 'w') as json_file:
                         json.dump(data, json_file)
                         json_file.close()

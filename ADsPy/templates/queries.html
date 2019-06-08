@@ -107,10 +107,8 @@
         btn.addEventListener("click", function(){
 
             var getString = "?no_presence=0&no_query=0&start=0&end=0";
-
             var box_start = document.getElementById("setStartTime");
             var box_end = document.getElementById("setEndTime");
-
             var reStart = /\d\d\/\d\d\/\d\d\d\d/;
             var myStringStart = box_start.value;
 
@@ -145,15 +143,12 @@
                 getString = getString.replace("no_presence=0", "&no_presence=1")
             }
             else {getString = getString.replace("no_presence=1", "&no_presence=0")}
-
             var btn_check_2 = document.getElementById("removeQuery");
             if (btn_check_2.checked === true){
                 getString = getString.replace("no_query=0", "no_query=1")
             }
             else {getString = getString.replace("no_query=1", "&no_query=0")}
-
             var xhr = new XMLHttpRequest();
-
             xhr.open("GET", pathname + "select.html" + getString);
             xhr.onload = function () {
 
@@ -173,7 +168,6 @@
 
         // inserire questo nel base.html una volta completo
         function hidePresenceAtKm(my_switch, xhr, status, text) {
-            //console.log("check point");
             //console.log(status, xhr);
             if (my_switch === true){
                 document.getElementById("table-container").innerHTML = text;

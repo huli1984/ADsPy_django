@@ -75,7 +75,7 @@ class MySearch(models.Model):
             df = pd.DataFrame()
             df["alpha"] = 0
             df["n. in session"] = ""
-            df["datetime"] = datetime.datetime.now().strftime('%d/%m/%y %H:%M:%S')
+            df["datetime"] = datetime.datetime.now().strftime('%d/%m/%Y %H:%M:%S')
             df["website title"] = ""
             df["kind"] = ""
             df["location (coordinates)"] = ""
@@ -131,7 +131,7 @@ class MySearch(models.Model):
                 if re.findall(re.compile(r"'start': \['\d\d\/\d\d\/\d\d\d\d'\]"), param):
                     start_string_raw = re.findall(re.compile(r"'start': \['\d\d\/\d\d\/\d\d\d\d'\]"), param)[0].replace("'start': ['", "").replace("']", "")
                     start_datetime = datetime.datetime.strptime(start_string_raw, "%d/%m/%Y")
-                    print(start_datetime)
+                    print(start_datetime, "start datetime")
 
             if "end': ['0']" in param:
                 pass
@@ -141,17 +141,14 @@ class MySearch(models.Model):
                 if re.findall(re.compile(r"'end': \['\d\d\/\d\d\/\d\d\d\d'\]"), param):
                     end_string_raw = re.findall(re.compile(r"'end': \['\d\d\/\d\d\/\d\d\d\d'\]"), param)[0].replace("'end': ['", "").replace("']", "")
                     end_datetime = datetime.datetime.strptime(end_string_raw, "%d/%m/%Y")
-                    print(end_datetime)
+                    print(end_datetime, "end time")
 
             if start_datetime != 0 and end_datetime != 0:
                 # retrieve dates from column in dataframe
-                print(csv_data["datetime"])
-                print(csv_data["datetime"].apply(pd.to_datetime), "trying to convert datetime in column")
-                csv_data = csv_data.loc[csv_data["datetime"].apply(pd.to_datetime).between(start_datetime, end_datetime, inclusive=False)]
+                csv_data = csv_data.loc[pd.to_datetime(csv_data["datetime"], dayfirst=True).between(start_datetime, end_datetime, inclusive=True)]
                 print(csv_data, "csv in function")
             else:
                 print(csv_data, "csv in else")
-                pass
 
             try:
                 csv_data = csv_data.drop(columns="location (name)")

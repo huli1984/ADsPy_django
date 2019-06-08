@@ -4,7 +4,7 @@
 {%block content%}
     {{request.GET.get}}
     {%for obj in object_list%}
-        {% if object_list.3 == obj.find_post_id %}
+        {% if object_list|last == obj.find_post_id %}
             {% call_method obj "display_df" request.GET|safe %}
         {%endif%}
     {%endfor%}
