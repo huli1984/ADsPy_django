@@ -1,4 +1,5 @@
 {%extends "base.html"%}
+{% load adspy_extras %}
     {%block content%}
     {%for item in object_list%}
         {% if object_list|last == item.find_post_id %}
@@ -11,9 +12,10 @@
                 <input type="hidden" value="{{item.find_post_id}}" name="idbox" size="1" />
                 <input type="hidden" value="{{item.my_search_query}}" name="textbox" size="1" />
                 <input type="submit" class="btn" value="launch search" name="bottone-richiesta" />
-                    {% if object_list|slice:"-1" == check_stop %}
-                        <input type="hidden" value="stop" name="stop_button" id="stop_button" />
-                    {%else%}
+                    {% if object_list|slice:"-2:-1"|remove_brackets == '<p id="query-timeout-warning">cannot send the same query within the query duration. Kill the query or contact an Administrator</p>' %}
+                        <div class="error-box">
+                            {{object_list|slice:"-2:-1"|remove_brackets|safe}}
+                        </div>
                     {% endif %}
                 </div>
             </form>
@@ -27,8 +29,6 @@
                  <label for="setEndTime">
                      <input class="form-control" type="text" id="setEndTime" placeholder="dd/mm/yyyy hh:mm"></label>
                  </label>`
-                <!--<label for="filterDate">
-                <input class="btn" type="button" name="filterDate" value="filter date" id="filterDate" /></label>-->
                  </div>
             </form>
 
