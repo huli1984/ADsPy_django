@@ -1,5 +1,27 @@
 {%extends "base.html"%}
+{% load static %}
 {% load adspy_extras %}
+    {% block branding %}
+        <style>
+            .error-box{
+                position: absolute;
+                display: none;
+                color: red;
+                float: right;
+                max-width: 200px;
+                background-color: #ddffd1;
+                border-radius: 15px;
+                text-align: center;
+                margin-left: 100px;
+
+            }
+            .error-box p{
+                padding-top: 12px;
+            }
+            .btn{
+            }
+        </style>
+    {% endblock branding %}
     {%block content%}
     {%for item in object_list%}
         {% if object_list|last == item.find_post_id %}
@@ -11,9 +33,9 @@
                 {% csrf_token %}
                 <input type="hidden" value="{{item.find_post_id}}" name="idbox" size="1" />
                 <input type="hidden" value="{{item.my_search_query}}" name="textbox" size="1" />
-                <input type="submit" class="btn" value="launch search" name="bottone-richiesta" />
+                <input type="submit" class="btn" id="launch-search" value="launch search" name="bottone-richiesta" />
                     {% if object_list|slice:"-2:-1"|remove_brackets == '<p id="query-timeout-warning">cannot send the same query within the query duration. Kill the query or contact an Administrator</p>' %}
-                        <div class="error-box">
+                        <div class="error-box" id="error-box">
                             {{object_list|slice:"-2:-1"|remove_brackets|safe}}
                         </div>
                     {% endif %}
@@ -164,6 +186,17 @@
             };
             //xhr.send(encodeURI(pathname));
             xhr.send(JSON.stringify({message: getString}));
+        });
+
+        var errorBoxP = document.getElementById("query-timeout-warning");
+        var errorBox = document.getElementById("error-box");
+        var launchSearchButton = document.getElementById("launch-search");
+        launchSearchButton.addEventListener("click", function(){
+             if (!!errorBoxP){
+                errorBox.style.display = "block";
+            } else {
+                console.log('no error-box')
+            }
         });
 
         // inserire questo nel base.html una volta completo

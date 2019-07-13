@@ -1,0 +1,5 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,12/07/19 03:02:47,ePRICE | Acquista online cellulari e smartphone a prezzi vantaggiosi‎,ADS A,45.451450_9.204327,telefono smartphone,False,False,False,to be implemented
+1,,0,1,12/07/19 03:02:47,Amazon.it - Telefono Smartphone | Scopri tutte le offerte‎,ADS A,45.451450_9.204327,telefono smartphone,True,True,True,to be implemented
+2,,0,0,12/07/19 03:05:01,ePRICE | Acquista online cellulari e smartphone a prezzi vantaggiosi‎,ADS A,45.451450_9.204327,telefono smartphone,No ADS,No ADS,No ADS,to be implemented
+3,,0,1,12/07/19 03:05:01,Amazon.it - Telefono Smartphone | Scopri tutte le offerte‎,ADS A,45.451450_9.204327,telefono smartphone,No ADS,No ADS,No ADS,to be implemented

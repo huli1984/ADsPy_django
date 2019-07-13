@@ -33,3 +33,7 @@ thead tr th{
     border-radius: 10px;
 }
 
+.error-box{
+    float: right;
+    color: red;
+}

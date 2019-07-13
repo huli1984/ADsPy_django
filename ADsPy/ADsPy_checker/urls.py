@@ -4,6 +4,7 @@ from . import views as mysearch_views
 from django.contrib import admin
 from django.contrib.auth.views import LoginView
 from django.views.generic import ListView, DetailView
+from itertools import chain
 from .models import MySearch
 
 # Admin Site Config
@@ -12,6 +13,9 @@ admin.sites.AdminSite.site_title = 'My site admin title'
 admin.sites.AdminSite.index_title = 'My site admin index'
 
 urlpatterns = [
+    #url(r'^$', ListView.as_view(queryset=sorted(chain(MySearch.objects.all()), key=lambda instance: instance.timestamp_now, reverse=True),
+    #                            template_name="my_search.html",
+    #                            paginate_by=25), name="my_search"),
     url(r'^$', mysearch_views.my_search, name="my_search"),
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/$', mysearch_views.queries, name="queries"),
     url(r'^(?P<id>\d+)/(?P<slug>[\w-]+)/select.html', mysearch_views.select, name="no_presence"),
