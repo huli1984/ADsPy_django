@@ -1,0 +1,19 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,16/07/19 00:16:02,Pompe Funebri | Assistenza Funebre Completa | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,0.0,0.0,False,to be implemented
+1,,0,1,16/07/19 00:16:02,Funerali Completi | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,1.0,1.0,True,to be implemented
+2,,0,0,16/07/19 00:16:02,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.306276_8.481562,pompe funebri,1.0,1.0,No ADS,to be implemented
+3,,0,0,16/07/19 00:18:12,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,0.0,0.0,False,to be implemented
+4,,0,1,16/07/19 00:18:12,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,1.0,1.0,True,to be implemented
+5,,0,0,16/07/19 00:18:12,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.306276_8.481562,pompe funebri,1.0,1.0,No ADS,to be implemented
+6,,0,0,16/07/19 01:34:20,Pompe Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+7,,0,1,16/07/19 01:34:20,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+8,,0,2,16/07/19 01:34:20,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+9,,0,3,16/07/19 01:34:20,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.306276_8.481562,pompe funebri,True,True,True,to be implemented
+10,,0,0,16/07/19 01:36:23,Pompe Funebri | Organizzazione di Funerali | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+11,,0,1,16/07/19 01:36:23,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+12,,0,2,16/07/19 01:36:23,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+13,,0,3,16/07/19 01:36:23,Pompe Funebri | Del Buono | pompefunebridelbuono.com‎,ADS A,44.306276_8.481562,pompe funebri,True,True,True,to be implemented
+14,,0,0,16/07/19 15:23:50,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+15,,0,1,16/07/19 15:23:50,Funerali Completi | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,True,True,True,to be implemented
+16,,0,0,16/07/19 16:08:36,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.306276_8.481562,pompe funebri,False,False,False,to be implemented
+17,,0,1,16/07/19 16:08:36,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.306276_8.481562,pompe funebri,True,True,True,to be implemented

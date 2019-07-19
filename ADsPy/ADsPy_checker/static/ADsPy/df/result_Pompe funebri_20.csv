@@ -1,0 +1,25 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,17/07/19 01:50:43,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,0.0,False,0.0,to be implemented
+1,,0,1,17/07/19 01:50:43,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,0.0,False,0.0,to be implemented
+2,,0,2,17/07/19 01:50:43,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,Pompe funebri,1.0,True,1.0,to be implemented
+3,,0,0,17/07/19 01:52:46,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,0.0,False,0.0,to be implemented
+4,,0,1,17/07/19 01:52:46,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,0.0,False,0.0,to be implemented
+5,,0,2,17/07/19 01:52:46,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS A,44.307208_8.482031,Pompe funebri,1.0,True,1.0,to be implemented
+6,,0,0,17/07/19 01:54:45,Pompe Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,0.0,False,0.0,to be implemented
+7,,0,1,17/07/19 01:54:45,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,1.0,True,1.0,to be implemented
+8,,0,0,17/07/19 01:54:45,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,Pompe funebri,1.0,No ADS,1.0,to be implemented
+9,,0,0,17/07/19 02:16:48,Pompe Funebri | Servizi Funebri Completi‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+10,,0,1,17/07/19 02:16:48,Onoranze Funebri | Pompe Funebri Liguri‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+11,,0,0,17/07/19 02:18:48,Pompe Funebri | Ofac a Spotorno‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+12,,0,1,17/07/19 02:18:48,Onoranze Funebri | Pompe Funebri Liguri‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+13,,0,0,17/07/19 02:18:48,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS B,44.307208_8.482031,Pompe funebri,True,True,No ADS,to be implemented
+14,,0,0,17/07/19 02:20:58,Pompe Funebri | Ofac a Spotorno‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+15,,0,1,17/07/19 02:20:58,Onoranze Funebri | Pompe Funebri Liguri‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+16,,0,0,17/07/19 03:00:03,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+17,,0,1,17/07/19 03:00:03,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+18,,0,0,17/07/19 03:02:02,Pompe Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+19,,0,1,17/07/19 03:02:02,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+20,,0,0,17/07/19 03:02:02,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS B,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+21,,0,0,17/07/19 03:04:10,Pompe Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,Pompe funebri,False,False,False,to be implemented
+22,,0,1,17/07/19 03:04:10,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,Pompe funebri,True,True,True,to be implemented
+23,,0,0,17/07/19 03:04:10,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS B,44.307208_8.482031,Pompe funebri,No ADS,True,No ADS,to be implemented

@@ -3,6 +3,12 @@
         <style>
             @media only screen and (max-width: 1199px) {#sidebar{display:none;}}
             .wrapper {display: flex; align-items: stretch; float: right;}
+            .modifica_ricerca{
+                display: inline;
+            }
+            .post_form{
+                display: inline;
+            }
             #sidebar {min-width: 250px; max-width: 250px; background: #385b38; color: #fff; transition: all 0.3s;}
             #sidebar.active {margin-left: -250px;}
             a[data-toggle="collapse"] {position: relative;}
@@ -36,13 +42,16 @@
     <div>
         {%for element in object_list%}
         <a href="{{element.get_url}}"><h1>{{element.my_search_query}}</h1></a>
-        <form action="{{''}}" method="post">
+        <form class="post_form" action="{{''}}" method="post">
             {% csrf_token %}
             <input type="hidden" value="{{element.find_post_id}}" name="idbox" size="1" />
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
+            <input type="submit" class="btn" style="background-color: #c3ffc2" value="download .csv" name="bottone_download" />
         </form>
-
+        <form class="modifica_ricerca" action="http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/{{element.find_post_id}}/change/">
+        <input class="btn" type="submit" value="modifica ricerca" />
+</form>
 
 
         <h2>Geolocalizzazione di riferimento: <span class="geo-title">{{element.latandlong}}</span></h2>

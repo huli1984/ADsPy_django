@@ -1,0 +1,12 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,17/07/19 03:09:52,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+1,,0,1,17/07/19 03:09:52,Impresa di Pompe Funebri | Ferrari a Genova | ferrarifuneral.it‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+2,,0,2,17/07/19 03:09:52,Pompe Funebri | De Marchi a Recco‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+3,,0,3,17/07/19 03:09:52,Pompe Funebri Genova | Barletta e Granello‎,ADS A,44.394044_8.958185,pompe funebri,True,True,True,to be implemented
+4,,0,0,17/07/19 03:11:52,Impresa di Pompe Funebri | Ferrari a Genova | ferrarifuneral.it‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+5,,0,1,17/07/19 03:11:52,Pompe Funebri | A.Se.f. a Genova | asef.it‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+6,,0,2,17/07/19 03:11:52,Pompe Funebri Genova | Barletta e Granello‎,ADS A,44.394044_8.958185,pompe funebri,False,False,False,to be implemented
+7,,0,3,17/07/19 03:11:52,Pompe Funebri | De Marchi a Recco | onoranzefunebridemarchi.it‎,ADS A,44.394044_8.958185,pompe funebri,True,True,True,to be implemented
+8,,0,0,17/07/19 03:11:52,Servizi di Pompe Funebri | Onoranze Funebri Serra Riccò‎,ADS B,44.394044_8.958185,pompe funebri,No ADS,False,No ADS,to be implemented
+9,,0,1,17/07/19 03:11:52,Pompe Funebri | Olivieri a Busalla‎,ADS B,44.394044_8.958185,pompe funebri,No ADS,False,No ADS,to be implemented
+10,,0,2,17/07/19 03:11:52,Onoranze Funebri Gianelli - con umanità affianco a voi‎,ADS B,44.394044_8.958185,pompe funebri,No ADS,True,No ADS,to be implemented

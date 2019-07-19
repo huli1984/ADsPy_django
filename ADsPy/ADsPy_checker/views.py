@@ -1,4 +1,6 @@
 from django.shortcuts import render
+from django.conf import settings
+from django.http import HttpResponse, Http404
 from .models import MySearch
 from adspy import ADsPyManager
 from django.http import HttpResponse, HttpResponseRedirect
@@ -15,6 +17,7 @@ from .models import MySearch
 from django import template
 from datetime import datetime
 import json
+import os
 
 no_run = False
 
@@ -43,10 +46,9 @@ def print_all_elements(elem):
 
 def find_ads_background(el):
     print("started function")
-    manager = ADsPyManager(el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
+    manager = ADsPyManager((el[1], el[5]), el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
     q = Queue(connection=Redis())
-    q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
-
+    q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
 
 @login_required
 def my_search(request):
@@ -85,7 +87,9 @@ def my_search(request):
                             datetime.now().strftime('%s')):
                         no_run = True
                         block_writing = True
-                        print("NO RUN ACTIVATED In POST views.py - MySearch")
+                        print("NO RUN ACTIVATED In POST views.py - MySearch", "\n", int(data[str(control_id)]["start_query_time"]) + int(elem.job_timeout), "\n")
+                        print(datetime.now().strftime('%s'))
+                        print("")
                     else:
                         # vedere se serve davvero buttare un no run dentro il json e recuperarlo: credo non serva affatto!! :D
                         no_run = False
@@ -117,6 +121,21 @@ def my_search(request):
     elif request.GET:
         print("into GET", request)
     # fine sezione bottone
+    elif request.POST.get("bottone_download"):
+        my_id = request.POST.get("idbox")
+        my_query = request.POST.get("textbox")
+        path = "/home/gabri/PycharmProjects/ADsPy_django/ADsPy/ADsPy_checker/static/ADsPy/df/result_{}_{}.csv".format(my_query, my_id)
+        file_path = os.path.join(settings.STATIC_ROOT, path)
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+                response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                return response
+        raise Http404
+    '''elif request.POST.get("bottone_modifica"):
+        print("http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/" + request.POST.get("idbox") + "/change/")
+        return HttpResponse("http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/" + request.POST.get("idbox") + "/change/")'''
+
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
     context_dict = {"object_list": page_elements}
 
@@ -130,6 +149,7 @@ def queries(request, id, slug):
     control_id = None
     control_slug = None
     control_timeout = None
+
     if request.POST.get("bottone-richiesta"):
         for elem in MySearch.objects.all():
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
@@ -187,6 +207,20 @@ def queries(request, id, slug):
 
             else:
                 print("pukkeka pukkea")
+
+    elif request.POST.get("bottone_download"):
+        my_id = request.POST.get("idbox")
+        my_query = request.POST.get("textbox")
+        path = "/home/gabri/PycharmProjects/ADsPy_django/ADsPy/ADsPy_checker/static/ADsPy/df/result_{}_{}.csv".format(
+            my_query, my_id)
+        file_path = os.path.join(settings.STATIC_ROOT, path)
+        if os.path.exists(file_path):
+            with open(file_path, 'rb') as fh:
+                response = HttpResponse(fh.read(), content_type="application/vnd.ms-excel")
+                response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
+                return response
+        raise Http404
+
     else:
         control_name = None
         control_id = None
