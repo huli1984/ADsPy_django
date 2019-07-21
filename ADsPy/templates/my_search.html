@@ -9,6 +9,13 @@
             .post_form{
                 display: inline;
             }
+            #download_button{background-color: #def9c7;}
+            #download_button:hover{
+                background-color: #efefee !important;
+                -webkit-transition: background-color 500ms linear !important;
+                -ms-transition: background-color 500ms linear !important;
+                transition: background-color 500ms linear !important;
+            }
             #sidebar {min-width: 250px; max-width: 250px; background: #385b38; color: #fff; transition: all 0.3s;}
             #sidebar.active {margin-left: -250px;}
             a[data-toggle="collapse"] {position: relative;}
@@ -47,7 +54,7 @@
             <input type="hidden" value="{{element.find_post_id}}" name="idbox" size="1" />
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
-            <input type="submit" class="btn" style="background-color: #c3ffc2" value="download .csv" name="bottone_download" />
+            <input type="submit" id="download_button" class="btn" value="download .csv" name="bottone_download" />
         </form>
         <form class="modifica_ricerca" action="http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/{{element.find_post_id}}/change/">
         <input class="btn" type="submit" value="modifica ricerca" />

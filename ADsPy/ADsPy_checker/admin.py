@@ -28,6 +28,8 @@ class MySearchAdmin(admin.ModelAdmin):
         return super().add_view(request, form_url, extra_context=extra_context)
 
     def change_view(self, request, object_id, form_url='', extra_context=None):
+        if request.POST.get("change-list"):
+            print("into modification")
         extras = extra_context or {}
         extras['location_list'] = self.process_data_model()
         return super().change_view(request, object_id, form_url, extra_context=extras)

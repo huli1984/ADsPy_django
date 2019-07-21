@@ -3,6 +3,21 @@
 {% load adspy_extras %}
     {% block branding %}
         <style>
+
+            .modifica_ricerca{
+                display: inline;
+            }
+            .post_form{
+                display: inline;
+            }
+
+            #download_button{background-color: #def9c7;}
+            #download_button:hover{
+                background-color: #efefee !important;
+                -webkit-transition: background-color 500ms linear !important;
+                -ms-transition: background-color 500ms linear !important;
+                transition: background-color 500ms linear !important;
+            }
             .error-box{
                 position: absolute;
                 display: none;
@@ -20,6 +35,9 @@
             }
             .btn{
             }
+            .form-group{
+                display: inline;
+            }
         </style>
     {% endblock branding %}
     {%block content%}
@@ -28,12 +46,13 @@
             <h1>{{item.my_search_query}}</h1>
             <h2>{{item.timestamp_now}}</h2>
             <h4>{{item.latandlong}}</h4>
-            <form action="{{''}}" method="post" id="{{item.id}}-{{item.slug}}">
+            <form class="post_form" action="{{''}}" method="post" id="{{item.id}}-{{item.slug}}">
                 <div class="form-group">
                 {% csrf_token %}
                 <input type="hidden" value="{{item.find_post_id}}" name="idbox" size="1" />
                 <input type="hidden" value="{{item.my_search_query}}" name="textbox" size="1" />
                 <input type="submit" class="btn" id="launch-search" value="launch search" name="bottone-richiesta" />
+                <input type="submit" id="download_button" class="btn" value="download .csv" name="bottone_download" />
                     {% if object_list|slice:"-2:-1"|remove_brackets == '<p id="query-timeout-warning">cannot send the same query within the query duration. Kill the query or contact an Administrator</p>' %}
                         <div class="error-box" id="error-box">
                             {{object_list|slice:"-2:-1"|remove_brackets|safe}}
@@ -41,7 +60,11 @@
                     {% endif %}
                 </div>
             </form>
-
+            <form class="modifica_ricerca" action="http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/{{item.id}}/change/">
+                <input class="btn" type="submit" value="modifica ricerca" />
+            </form>
+            </br>
+            </br>
             <form action="{{''}}" method="get">
                  <div class="form-group">
                 {% csrf_token %}
@@ -64,6 +87,7 @@
                 <input class = checkbox type="checkbox" name="removeQuery" id="removeQuery" />Remove Query</label>
                 <label for="submit">
                 <input class="btn" type="button" name="submit" value="drop column(s) and row(s)" id="submit" /></label>
+
                 </div>
             </form>
 
