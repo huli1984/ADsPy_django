@@ -79,6 +79,32 @@
 
             }
         }
+
+        function autoStart(){
+
+            var autoTrigget;
+            // ajax call in js
+            var pathname = window.location.pathname;
+            console.log(pathname)
+            var xhttpreq = new XMLHttpRequest();
+            var getString = "gimmeBaseDir=True";
+            // open the request
+            xhttpreq.open("GET", pathname + "?" + getString);
+            xhttpreq.onload = function() {// success check (between 200 and 299)
+                    if (xhttpreq.status >= 200 && xhttpreq.status < 300 && xhttpreq.responseText !== "merda") {
+                        var my_switch = true;
+                        hidePresenceAtKm(my_switch, xhttpreq, xhttpreq.status, xhttpreq.responseText)
+                        highligh();
+                    }
+                    else {
+                        console.log("merda secca", xhttpreq.status);
+                    }};
+            xhttpreq.send(JSON.stringify({message: getString}));
+            }
+
+        window.addEventListener('load', autoStart);
+
+
     </script>
 
 </body>

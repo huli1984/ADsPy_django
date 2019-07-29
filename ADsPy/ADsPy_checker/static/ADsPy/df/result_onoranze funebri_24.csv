@@ -1,8 +1,23 @@
 ,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
-0,,0,0,17/07/19 03:10:11,Onoranze Funebri | Assistenza Funebre Completa | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
-1,,0,1,17/07/19 03:10:11,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
-2,,0,2,17/07/19 03:10:11,Onoranze Funebri | Cura e Discrezione‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
-3,,0,0,17/07/19 03:12:11,Onoranze Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
-4,,0,1,17/07/19 03:12:11,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
-5,,0,2,17/07/19 03:12:11,Onoranze Funebri | Rosario Reale | rosariorealeonoranzefunebri.com‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
-6,,0,0,17/07/19 03:12:11,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+0,,0,0,17/07/19 03:10:11,Onoranze Funebri | Assistenza Funebre Completa | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,0.0,0.0,0.0,to be implemented
+1,,0,1,17/07/19 03:10:11,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,0.0,0.0,0.0,to be implemented
+2,,0,2,17/07/19 03:10:11,Onoranze Funebri | Cura e Discrezione‎,ADS A,44.307208_8.482031,onoranze funebri,1.0,1.0,1.0,to be implemented
+3,,0,0,17/07/19 03:12:11,Onoranze Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,0.0,0.0,0.0,to be implemented
+4,,0,1,17/07/19 03:12:11,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,0.0,0.0,0.0,to be implemented
+5,,0,2,17/07/19 03:12:11,Onoranze Funebri | Rosario Reale | rosariorealeonoranzefunebri.com‎,ADS A,44.307208_8.482031,onoranze funebri,1.0,1.0,1.0,to be implemented
+6,,0,0,17/07/19 03:12:11,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,onoranze funebri,1.0,1.0,1.0,to be implemented
+7,,0,0,26/07/19 01:27:23,Onoranze Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+8,,0,1,26/07/19 01:27:23,Onoranze Funebri | Rosario Reale | rosariorealeonoranzefunebri.com‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+9,,0,2,26/07/19 01:27:23,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+10,,0,0,26/07/19 01:27:23,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,onoranze funebri,No ADS,True,True,to be implemented
+11,,0,0,26/07/19 01:29:43,Onoranze Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+12,,0,1,26/07/19 01:29:43,Onoranze Funebri | Rosario Reale | rosariorealeonoranzefunebri.com‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+13,,0,2,26/07/19 01:29:43,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+14,,0,3,26/07/19 01:29:43,Onoranze Funebri | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+15,,0,0,26/07/19 01:29:43,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+16,,0,0,29/07/19 01:41:18,Onoranze Funebri | Servizi Funebri Completi | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+17,,0,1,29/07/19 01:41:18,Onoranze Funebri | Rosario Reale | rosariorealeonoranzefunebri.com‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+18,,0,0,29/07/19 01:41:18,Onoranze funebri valbormida | Reperibilità 24 ore su 24‎,ADS B,44.307208_8.482031,onoranze funebri,No ADS,True,No ADS,to be implemented
+19,,0,0,29/07/19 01:43:40,Onoranze Funebri | Ofac a Spotorno | pompefunebriofac.it‎,ADS A,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented
+20,,0,0,29/07/19 01:43:40,Onoranze Funebri | Rosario Reale‎,ADS B,44.307208_8.482031,onoranze funebri,False,False,False,to be implemented
+21,,0,1,29/07/19 01:43:40,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,onoranze funebri,True,True,True,to be implemented

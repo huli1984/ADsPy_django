@@ -18,6 +18,8 @@ from django import template
 from datetime import datetime
 import json
 import os
+from threading import Thread
+import glob
 
 no_run = False
 
@@ -50,14 +52,20 @@ def find_ads_background(el):
     q = Queue(connection=Redis())
     q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
 
+
+def autostart():
+    print("autostarted")
+
 @login_required
 def my_search(request):
     no_run = False
     block_writing = False
+
     # sezione cattura impulso bottone: usare il bottone per far partire la scansione sulla tabella voluta
     if request.POST.get("bottone_prova"):
         for elem in MySearch.objects.all():
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
+
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
@@ -68,6 +76,7 @@ def my_search(request):
                 control_id = elem.id
                 control_slug = elem.slug
                 control_timeout = elem.job_timeout
+                control_query = elem.my_search_query
                 start_query_time = datetime.now()
                 data = {"start_value": 0}
                 block_writing = False
@@ -119,7 +128,13 @@ def my_search(request):
             else:
                 print("pukkeka pukkea")
     elif request.GET:
+        print("")
         print("into GET", request)
+        if request.GET.get("gimmeBaseDir"):
+            print("here I can launch the autostart thread")
+            with open("ADsPy_checker/base_dir", "w") as f:
+                f.write(settings.BASE_DIR)
+                f.close()
     # fine sezione bottone
     elif request.POST.get("bottone_download"):
         my_id = request.POST.get("idbox")
@@ -132,9 +147,6 @@ def my_search(request):
                 response['Content-Disposition'] = 'inline; filename=' + os.path.basename(file_path)
                 return response
         raise Http404
-    '''elif request.POST.get("bottone_modifica"):
-        print("http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/" + request.POST.get("idbox") + "/change/")
-        return HttpResponse("http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/" + request.POST.get("idbox") + "/change/")'''
 
     page_elements = sorted(MySearch.objects.all(), key=lambda sub_elem: sub_elem.timestamp_now, reverse=True)
     context_dict = {"object_list": page_elements}
