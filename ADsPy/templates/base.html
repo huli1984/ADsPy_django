@@ -82,7 +82,6 @@
 
         function autoStart(){
 
-            var autoTrigget;
             // ajax call in js
             var pathname = window.location.pathname;
             console.log(pathname)
@@ -93,8 +92,8 @@
             xhttpreq.onload = function() {// success check (between 200 and 299)
                     if (xhttpreq.status >= 200 && xhttpreq.status < 300 && xhttpreq.responseText !== "merda") {
                         var my_switch = true;
-                        hidePresenceAtKm(my_switch, xhttpreq, xhttpreq.status, xhttpreq.responseText)
-                        highligh();
+                        // hidePresenceAtKm(my_switch, xhttpreq, xhttpreq.status, xhttpreq.responseText)
+                        // highligh();
                     }
                     else {
                         console.log("merda secca", xhttpreq.status);
@@ -102,9 +101,33 @@
             xhttpreq.send(JSON.stringify({message: getString}));
             }
 
+        function getIndicator() {
+            setInterval(function(){
+                var pathname = window.location.pathname;
+                var divIndicator = document.querySelectorAll(".indicatore");
+                var idboxClass = document.querySelectorAll(".id_box")
+                // call ajax per indicatore
+                var xhr = new XMLHttpRequest();
+                var dataString = "checkStart=True";
+                xhr.open("GET", pathname + "?" + dataString);
+                xhr.onload = function() {// success check (between 200 and 299)
+                    if (xhr.status >= 200 && xhr.status < 300) {
+                        console.log(xhr.status);
+                        for (i = 0; i < divIndicator.length; i++){
+                            console.log(divIndicator[i].id);
+                            if(xhr.responseText.includes(divIndicator[i].id)){
+                            divIndicator[i].innerHTML = xhr.responseText;}
+                        }
+                    }
+                    else {
+                        console.log("something went wrong", xhr.status);
+                    }};
+                    xhr.send(JSON.stringify({message: dataString}));
+            }, 5000)
+        }
+
         window.addEventListener('load', autoStart);
-
-
+        window.addEventListener('load', getIndicator);
     </script>
 
 </body>

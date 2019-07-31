@@ -51,7 +51,7 @@
         <a href="{{element.get_url}}"><h1>{{element.my_search_query}}</h1></a>
         <form class="post_form" action="{{''}}" method="post">
             {% csrf_token %}
-            <input type="hidden" value="{{element.find_post_id}}" name="idbox" size="1" />
+            <input type="hidden" value="{{element.find_post_id}}" name="idbox" class="id_box" size="1" />
             <input type="hidden" value="{{element.my_search_query}}" name="textbox" size="1" />
             <input type="submit" class="btn" value="launch search" name="bottone_prova" />
             <input type="submit" id="download_button" class="btn" value="download .csv" name="bottone_download" />
@@ -59,7 +59,9 @@
         <form class="modifica_ricerca" action="http://127.0.0.1:8000/admin/ADsPy_checker/mysearch/{{element.find_post_id}}/change/">
         <input class="btn" type="submit" value="modifica ricerca" />
 </form>
-
+        <!-- qui div per loading bar, bottone stop n go -->
+        <div class="indicatore" id="{{element.find_post_id}}"></div>
+        <!-- fine indicatore-->
 
         <h2>Geolocalizzazione di riferimento: <span class="geo-title">{{element.latandlong}}</span></h2>
             <h3>Data e ora: {{element.timestamp_now}}</h3>
@@ -83,6 +85,10 @@
                 {%endif%}
             </span>
     </div>
+
+    <script>
+
+    </script>
     {%endblock content%}
 
 {%block javascript%}

@@ -1,3 +1,4 @@
+from psutil import NoSuchProcess
 import psutil
 import os
 import signal
@@ -37,15 +38,16 @@ def auto_monnezzaro(args):
                                 for i in range(1, len(ids)):
                                     print(ids[i])
                                     try:
-                                        print(ids[i])
                                         process = psutil.Process(int(ids[i]))
-                                        print(process.children(), "process children")
                                         children = process.children(recursive=True)
                                         for child in children:
-                                            os.kill(child.pid, signal.SIGKILL)
+                                            try:
+                                                os.kill(child.pid, signal.SIGKILL)
+                                            except (OSError, NoSuchProcess) as my_error:
+                                                pass
                                         os.kill(int(ids[i]), signal.SIGTERM)
-                                    except OSError:
-                                        print("nothign to kill")
+                                    except (OSError, NoSuchProcess) as my_error:
+                                        print("nothign to kill", my_error)
                                         killed += 1
                                     else:
                                         print("killed {}".format(ids[i]))
@@ -64,7 +66,7 @@ def auto_monnezzaro(args):
                     print("pids opened, {}\r".format(jobs_dict))
             except (FileExistsError, IOError) as e:
                 print("file not found, error {}".format(e))
-        time.sleep(2)
+        time.sleep(60)
 
 
 if __name__ == "__main__":

@@ -135,6 +135,17 @@ def my_search(request):
             with open("ADsPy_checker/base_dir", "w") as f:
                 f.write(settings.BASE_DIR)
                 f.close()
+
+        if request.GET.get("checkStart"):
+            print("in check start for indicator in views.py")
+            pids_list = glob.glob(os.path.join(settings.BASE_DIR, "pids/*.pid"))
+            print(pids_list)
+            running_ids = []
+            for pid_path in pids_list:
+                running_ids.extend(re.findall(re.compile("\d+"), pid_path))
+            print(running_ids)
+            return HttpResponse(" ".join(running_ids))
+
     # fine sezione bottone
     elif request.POST.get("bottone_download"):
         my_id = request.POST.get("idbox")
