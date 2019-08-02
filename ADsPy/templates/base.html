@@ -114,9 +114,26 @@
                     if (xhr.status >= 200 && xhr.status < 300) {
                         console.log(xhr.status);
                         for (i = 0; i < divIndicator.length; i++){
-                            console.log(divIndicator[i].id);
+                            console.log(divIndicator[i], divIndicator[i].id, xhr.responseText.split(","));
                             if(xhr.responseText.includes(divIndicator[i].id)){
-                            divIndicator[i].innerHTML = xhr.responseText;}
+                                console.log("into 200")
+                                for (j=0; j < divIndicator[i].children.length; j++){
+                                    if (divIndicator[i].children[j].className === "red_image"){
+                                        console.log("red image child")
+                                        divIndicator[i].children[j].style.display = "inherit"
+                                    } else {console.log("no red corrispondency" + divIndicator[i].id + divIndicator[i].children[j])}
+
+                                    if (divIndicator[i].children[j].className === "green_image"){
+                                        console.log("green image child")
+                                        divIndicator[i].children[j].style.display = "none"
+                                    } else {console.log("no green corrispondency" + divIndicator[i].id + divIndicator[i].children[j])}
+
+                                }
+
+                                //divIndicator[i].innerHTML = xhr.responseText.split(",");
+                            } else {
+                                // qui normalizza colore lucine
+                            }
                         }
                     }
                     else {

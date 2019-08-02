@@ -144,7 +144,8 @@ def my_search(request):
             for pid_path in pids_list:
                 running_ids.extend(re.findall(re.compile("\d+"), pid_path))
             print(running_ids)
-            return HttpResponse(" ".join(running_ids))
+            # return HttpResponse(running_ids)
+            return HttpResponse(",".join(running_ids))
 
     # fine sezione bottone
     elif request.POST.get("bottone_download"):

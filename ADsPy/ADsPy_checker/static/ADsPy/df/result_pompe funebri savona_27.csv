@@ -1,5 +1,31 @@
 ,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
-0,,0,0,31/07/19 02:30:12,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,False,No ADS,False,to be implemented
-1,,0,1,31/07/19 02:30:12,Funerali Completi | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,pompe funebri savona,False,No ADS,False,to be implemented
-2,,0,2,31/07/19 02:30:12,Pompe Funebri Savona | Cerca Pompe Funebri Savona | ZapMeta.it‎,ADS A,44.307208_8.482031,pompe funebri savona,True,No ADS,True,to be implemented
-3,,0,0,31/07/19 02:32:24,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+0,,0,0,31/07/19 02:30:12,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,0.0,No ADS,0.0,to be implemented
+1,,0,1,31/07/19 02:30:12,Funerali Completi | Pompe Funebri Liguri | PompeFunebriLiguri.com‎,ADS A,44.307208_8.482031,pompe funebri savona,0.0,No ADS,0.0,to be implemented
+2,,0,2,31/07/19 02:30:12,Pompe Funebri Savona | Cerca Pompe Funebri Savona | ZapMeta.it‎,ADS A,44.307208_8.482031,pompe funebri savona,1.0,No ADS,1.0,to be implemented
+3,,0,0,31/07/19 02:32:24,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,1.0,True,1.0,to be implemented
+4,,0,0,31/07/19 03:03:59,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+5,,0,1,31/07/19 03:03:59,Funerali Completi | Pompe Funebri Liguri | Onoranze Funebri‎,ADS A,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+6,,0,2,31/07/19 03:03:59,Pompe Funebri Savona | Cerca Pompe Funebri Savona | ZapMeta.it‎,ADS A,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+7,,0,0,31/07/19 03:03:59,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+8,,0,1,31/07/19 03:03:59,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+9,,0,0,31/07/19 03:06:18,Pompe Funebri Savona | Del Buono | pompefunebridelbuono.com‎,ADS A,44.307208_8.482031,pompe funebri savona,No ADS,True,No ADS,to be implemented
+10,,0,0,31/07/19 03:06:18,Onoranze Funebri | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+11,,0,1,31/07/19 03:06:18,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+12,,0,2,31/07/19 03:06:18,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+13,,0,0,31/07/19 03:12:44,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+14,,0,1,31/07/19 03:12:44,Pompe Funebri Savona | Del Buono‎,ADS A,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+15,,0,2,31/07/19 03:12:44,Pompe Funebri Savona | Cerca Pompe Funebri Savona‎,ADS A,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+16,,0,0,31/07/19 03:12:44,Onoranze Funebri | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,No ADS,False,to be implemented
+17,,0,1,31/07/19 03:12:44,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,True,No ADS,True,to be implemented
+18,,0,0,31/07/19 03:15:03,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,pompe funebri savona,No ADS,True,No ADS,to be implemented
+19,,0,0,31/07/19 03:15:03,Funerali Completi | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,No ADS,False,to be implemented
+20,,0,1,31/07/19 03:15:03,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,No ADS,False,to be implemented
+21,,0,2,31/07/19 03:15:03,Pompe Funebri Savona | Del Buono‎,ADS B,44.307208_8.482031,pompe funebri savona,True,No ADS,True,to be implemented
+22,,0,0,31/07/19 03:46:38,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+23,,0,0,31/07/19 03:46:38,Funerali Completi | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+24,,0,1,31/07/19 03:46:38,Pompe Funebri Savona | Del Buono‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+25,,0,2,31/07/19 03:46:38,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented
+26,,0,0,31/07/19 03:48:56,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS A,44.307208_8.482031,pompe funebri savona,True,No ADS,No ADS,to be implemented
+27,,0,0,31/07/19 03:48:56,Funerali Completi | Pompe Funebri Liguri‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+28,,0,1,31/07/19 03:48:56,Pompe Funebri Savona | Del Buono‎,ADS B,44.307208_8.482031,pompe funebri savona,False,False,False,to be implemented
+29,,0,2,31/07/19 03:48:56,Organizzazione Funerali | Sivioli Onoranze Funebri‎,ADS B,44.307208_8.482031,pompe funebri savona,True,True,True,to be implemented

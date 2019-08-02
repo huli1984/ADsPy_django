@@ -9,6 +9,16 @@
             .post_form{
                 display: inline;
             }
+            .indicatore{
+                display: inline;
+                width: 150px;
+            }
+            .green_image{
+                width: 150px;
+            }
+            .red_image{
+                width: 150px;
+            }
             #download_button{background-color: #def9c7;}
             #download_button:hover{
                 background-color: #efefee !important;
@@ -60,7 +70,10 @@
         <input class="btn" type="submit" value="modifica ricerca" />
 </form>
         <!-- qui div per loading bar, bottone stop n go -->
-        <div class="indicatore" id="{{element.find_post_id}}"></div>
+        <div class="indicatore" id="{{element.find_post_id}}">
+            <img class="green_image" src="/media/green.gif" style=""/>
+            <img class="red_image" src="/media/red.gif" style="display: none"/>
+        </div>
         <!-- fine indicatore-->
 
         <h2>Geolocalizzazione di riferimento: <span class="geo-title">{{element.latandlong}}</span></h2>
