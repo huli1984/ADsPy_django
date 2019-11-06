@@ -45,7 +45,8 @@ INSTALLED_APPS = [
 ]
 
 INSTALLED_APPS += ["djsupervisor"]
-INSTALLED_APPS += ["django_rq"]
+INSTALLED_APPS += ["django_rq", "scheduler"]
+INSTALLED_APPS += ["django_q"]
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',

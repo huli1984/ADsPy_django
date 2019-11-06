@@ -36,6 +36,7 @@ class MySearch(models.Model):
     csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
     # Fields
+    job_starts = models.CharField(max_length=5,  default="now")
     timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
     result_field = models.TextField(blank=True, null=True)
     slug = models.SlugField()

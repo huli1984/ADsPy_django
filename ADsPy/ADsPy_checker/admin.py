@@ -17,7 +17,7 @@ csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
 class MySearchAdmin(admin.ModelAdmin):
 
-    list_display = ["__str__", "timestamp_now", "latandlong", "job_timeout"]
+    list_display = ["__str__", "timestamp_now", "latandlong", "job_starts", "job_timeout"]
     list_filter = ["my_search_query", "latandlong"]
     search_fields = ["my_search_query", "result_field", "latandlong"]
     prepopulated_fields = {"slug": ("my_search_query",)}
@@ -57,4 +57,5 @@ class MySearchAdmin(admin.ModelAdmin):
         js = ("{}admin.js".format(js_path))
 
 
+# admin.site.unregister(MySearch)
 admin.site.register(MySearch, MySearchAdmin)

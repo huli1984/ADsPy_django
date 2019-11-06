@@ -10,18 +10,29 @@ from django.contrib.auth import authenticate, login
 from django.views.generic.edit import CreateView
 from redis import Redis
 from rq import Queue
+from rq_scheduler import Scheduler
 import time
 import re
 import json
 from .models import MySearch
 from django import template
 from datetime import datetime
+from datetime import timedelta
 import json
 import os
 from threading import Thread
 import glob
+from django_rq import job
 
 no_run = False
+
+
+'''def test_def():
+    print("")
+    print("_______")
+    print("check for function call")
+    print("_______")
+    time.sleep(10)'''
 
 
 def print_all_elements(elem):
@@ -46,15 +57,51 @@ def print_all_elements(elem):
 #   q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5])
 
 
-def find_ads_background(el):
+# qui potenziare con scheduler a richiesta
+def find_ads_background(el, scheduled_start):
     print("started function")
     manager = ADsPyManager((el[1], el[5]), el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
     q = Queue(connection=Redis())
-    q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
+    print("{}, scheduled start at".format(scheduled_start))
+    #scheduled_start = 0
+    if scheduled_start == "now":
+        print("standard job task")
+        q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
+        #q.enqueue(test_def, job_timeout=el[5], result_ttl=30)
+    else:
+        #split schedule start - this day and month used
+        start_values = str(scheduled_start).split(":")
+        print(start_values, "valori di partenza, minuti e secondi")
+        start_time = datetime.now() + timedelta(0, -3600)
+        #call method to start at specified time (or save the query in a text)
+        print(scheduled_start, start_time, "job start in scheduled mode")
+        #scheduler = Scheduler(connection=Redis())
+        print("called job, {}".format(manager.find_ads))
+        print("\n_________\nstart_time", start_time, "\n")
+        print("Queue: {}".format(q))
+
+        scheduler = Scheduler(queue_name="default", queue=q, connection=Redis())
+
+        scheduler.enqueue_at(start_time, manager.find_ads, (el[6], el[2]), timeout=el[5])
+
+        print("performing queue in desired time\n")
+        print(scheduler.count())
+        print("_____\n")
+        '''gen = scheduler.get_jobs()
+        for i in range(0, scheduler.count()):
+            try:
+                print(next(gen))
+                scheduler.cancel(next(gen))
+                pass
+            except StopIteration:
+                print("break cicle\n\n\n")
+                break
+        print("_____\n")'''
 
 
 def autostart():
     print("autostarted")
+
 
 @login_required
 def my_search(request):
@@ -67,6 +114,7 @@ def my_search(request):
             print(elem.my_search_query, elem.find_post_id(), request.POST.get("textbox"), request.POST.get("idbox"))
 
             if (elem.my_search_query == request.POST.get("textbox")) and (str(elem.find_post_id()) == request.POST.get("idbox")):
+                print("\n_____\nMatching Query!\n")
                 element_list = print_all_elements(elem)
                 element_list.append(request.POST.get("idbox"))
 
@@ -76,6 +124,7 @@ def my_search(request):
                 control_id = elem.id
                 control_slug = elem.slug
                 control_timeout = elem.job_timeout
+                control_scheduler = elem.job_starts
                 control_query = elem.my_search_query
                 start_query_time = datetime.now()
                 data = {"start_value": 0}
@@ -122,11 +171,11 @@ def my_search(request):
                         json_file.close()
 
                 if not no_run:
-                    find_ads_background(element_list)
+                    find_ads_background(element_list, control_scheduler)
                 else:
                     print("cannot start query -  main page")
             else:
-                print("pukkeka pukkea")
+                print("pukkeka pukkea, get POST: {}, my query: {}".format(request.POST.get("textbox"), elem.my_search_query))
     elif request.GET:
         print("")
         print("into GET", request)
