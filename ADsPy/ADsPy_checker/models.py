@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.utils import timezone
 import pandas as pd
 import re
 from datetime import datetime
@@ -36,7 +37,8 @@ class MySearch(models.Model):
     csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
     # Fields
-    job_starts = models.CharField(max_length=5,  default="now")
+    job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now)
+    #job_starts = models.CharField(max_length=5, default="now")
     timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
     result_field = models.TextField(blank=True, null=True)
     slug = models.SlugField()

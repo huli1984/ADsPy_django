@@ -1,0 +1,6 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,,,06/11/19 12:45:42,Not Available,NO ADS BOXES,S_a,onoranze funebri,,,,to be implemented
+1,,0,0,06/11/19 12:49:43,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.306276_8.481562,onoranze funebri,False,No ADS,No ADS,to be implemented
+2,,0,1,06/11/19 12:49:43,Onoranze Funebri | La Savonese‎,ADS B,44.306276_8.481562,onoranze funebri,True,No ADS,No ADS,to be implemented
+3,,0,0,06/11/19 12:51:54,Onoranze funebri Parodi | Funerale in Valbormida‎,ADS B,44.306276_8.481562,onoranze funebri,False,No ADS,False,to be implemented
+4,,0,1,06/11/19 12:51:54,Onoranze Funebri Savona | Socrem Apeiron‎,ADS B,44.306276_8.481562,onoranze funebri,True,No ADS,True,to be implemented

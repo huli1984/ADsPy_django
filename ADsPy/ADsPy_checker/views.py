@@ -3,6 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse, Http404
 from .models import MySearch
 from adspy import ADsPyManager
+import pytz
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -63,7 +64,18 @@ def find_ads_background(el, scheduled_start):
     manager = ADsPyManager((el[1], el[5]), el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
     q = Queue(connection=Redis())
     print("{}, scheduled start at".format(scheduled_start))
-    #scheduled_start = 0
+    print("___________\n{}, {}, {}".format(scheduled_start, datetime.now(), (datetime.utcnow().replace(tzinfo=pytz.utc)) - scheduled_start))
+    if ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 0:
+        print("\n")
+        print((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1))
+        print("ready to go this way")
+        print("\n")
+        scheduled_start = "now"
+    else:
+        print("schdueled")
+        print((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1))
+        print("\n")
+
     if scheduled_start == "now":
         print("standard job task")
         q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
@@ -72,7 +84,7 @@ def find_ads_background(el, scheduled_start):
         #split schedule start - this day and month used
         start_values = str(scheduled_start).split(":")
         print(start_values, "valori di partenza, minuti e secondi")
-        start_time = datetime.now() + timedelta(0, -3600)
+        start_time = scheduled_start + timedelta(0, 0)
         #call method to start at specified time (or save the query in a text)
         print(scheduled_start, start_time, "job start in scheduled mode")
         #scheduler = Scheduler(connection=Redis())

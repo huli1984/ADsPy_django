@@ -1,0 +1,15 @@
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,06/11/19 12:24:43,Pet shop | Acquista subito e risparmia | Le migliori offerte online‎,ADS A,44.394044_8.958185,pet shop,False,False,False,to be implemented
+1,,0,1,06/11/19 12:24:43,Pet Shop | A Genova Sampierdarena‎,ADS A,44.394044_8.958185,pet shop,True,True,True,to be implemented
+2,,0,0,06/11/19 12:26:53,Pet shop | Acquista subito e risparmia | zooplus.it‎,ADS A,44.394044_8.958185,pet shop,False,False,False,to be implemented
+3,,0,1,06/11/19 12:26:53,Pet Shop | A Genova Sampierdarena | LAmicodegliAnimali.it‎,ADS A,44.394044_8.958185,pet shop,True,True,True,to be implemented
+4,,0,0,06/11/19 12:29:04,Pet shop | Acquista subito e risparmia | zooplus.it‎,ADS A,44.394044_8.958185,pet shop,False,False,False,to be implemented
+5,,0,1,06/11/19 12:29:04,Pet Shop | A Genova Sampierdarena | LAmicodegliAnimali.it‎,ADS A,44.394044_8.958185,pet shop,True,True,True,to be implemented
+6,,0,0,06/11/19 12:31:14,Pet shop | Acquista subito e risparmia | zooplus.it‎,ADS A,44.394044_8.958185,pet shop,No ADS,No ADS,No ADS,to be implemented
+7,,0,1,06/11/19 12:31:14,Pet Shop | A Genova Sampierdarena | LAmicodegliAnimali.it‎,ADS A,44.394044_8.958185,pet shop,No ADS,No ADS,No ADS,to be implemented
+8,,0,0,06/11/19 12:33:26,Pet shop | Acquista subito e risparmia | zooplus.it‎,ADS A,44.394044_8.958185,pet shop,True,True,True,to be implemented
+9,,0,0,06/11/19 12:33:26,Pet Shop | A Genova Sampierdarena‎,ADS B,44.394044_8.958185,pet shop,No ADS,No ADS,No ADS,to be implemented
+10,,0,0,06/11/19 12:35:48,Zooplus: il tuo Pet Shop | Super Offerta di Benvenuto -5%‎,ADS A,44.394044_8.958185,pet shop,No ADS,No ADS,No ADS,to be implemented
+11,,0,0,06/11/19 12:35:48,Pet Shop | A Genova Sampierdarena‎,ADS B,44.394044_8.958185,pet shop,No ADS,No ADS,No ADS,to be implemented
+12,,0,0,06/11/19 12:38:08,Pet Shop | A Genova Sampierdarena‎,ADS A,44.394044_8.958185,pet shop,No ADS,True,No ADS,to be implemented
+13,,0,0,06/11/19 12:38:08,Pet shop | Acquista subito e risparmia | Le migliori offerte online‎,ADS B,44.394044_8.958185,pet shop,No ADS,True,No ADS,to be implemented
