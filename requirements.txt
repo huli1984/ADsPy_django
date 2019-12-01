@@ -20,7 +20,6 @@ django-rq-scheduler==1.1.3
 django-sb-admin==0.3.7
 django-selenium==0.9.8
 django-supervisor==0.4.0
-djutils==0.3.2
 
 -e git+https://github.com/mobolic/facebook-sdk.git@65ff582e77f7ed68b6e9643a7490e5dee2a1031b#egg=facebook_sdk
 fake-useragent==0.1.11
