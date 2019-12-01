@@ -33,12 +33,10 @@ pyppeteer==0.0.25
 pyquery==1.4.0
 pyRFC3339==1.0
 pyserial==3.4
-python-apt==1.6.4
 pytz==2018.3
 pyxdg==0.25
 PyYAML==3.12
 pyzmq==16.0.2
-reportlab==3.4.0
 requests==2.18.4
 requests-file==1.4.3
 requests-html==0.9.0
