@@ -1,1 +1,1 @@
-web: gunicorn ADsPy.wsgi --log-file -
+web: gunicorn adspydjango.wsgi --log-file -
