@@ -56,3 +56,10 @@ docs/_build/
 
 # PyBuilder
 target/
+
+### Django ###
+*.log
+*.pot
+*.pyc
+__pycache__/
+local_settings.py

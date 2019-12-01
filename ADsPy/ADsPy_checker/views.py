@@ -69,9 +69,8 @@ def find_ads_background(el, scheduled_start):
         print((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1))
         print("ready to go this way")
         print("\n")
-        scheduled_start = "now"
     elif ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 180:
-        pass
+        print("start is too late")
 
     if scheduled_start == "now":
         print("standard job task")

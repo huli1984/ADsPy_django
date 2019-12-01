@@ -35,6 +35,7 @@ class MySearch(models.Model):
     """A typical class defining a model, derived from the Model class."""
 
     csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
+    print("BASE DIR: {}".format(BASE_DIR))
 
     # Fields
     job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now)

@@ -1,1 +1,3 @@
-,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km
+,index,alpha,n. in session,datetime,website title,kind,location (coordinates),query,presence at 5 km,presence at 10 km,presence at 20 km,location (name)
+0,,0,0,01/12/19 16:05:39,"<span class=""pcbdac"">ECHO Digital Studio | Strategie Web Marketing | echocreative.it‎</span>",ADS A,44.393906_8.958207,web marketing,,,,to be implemented
+1,,,,01/12/19 16:07:51,Not Available,NO ADS BOXES,S_e,web marketing,,,,to be implemented
