@@ -1,1 +1,1 @@
-web: gunicorn --pythonpath ADsPy_checker ADsPy_checker.wsgi
+web: gunicorn --pythonpath ADsPy ADsPy.wsgi
