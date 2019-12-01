@@ -2,8 +2,8 @@ from django.shortcuts import render
 from django.conf import settings
 from django.http import HttpResponse, Http404
 from .models import MySearch
-from adspy import ADsPyManager
 import pytz
+from .adspy import ADsPyManager
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
