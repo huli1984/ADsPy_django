@@ -5,7 +5,7 @@ cssselect==1.0.3
 dj-database-url==0.5.0
 Django==2.2.7
 django-heroku==0.3.1
-django-admin-interface==10.0.5
+django-admin-interface==0.11.2
 django-supervisor==0.4.0
 -e git+https://github.com/mobolic/facebook-sdk.git@65ff582e77f7ed68b6e9643a7490e5dee2a1031b#egg=facebook_sdk
 fake-useragent==0.1.11
