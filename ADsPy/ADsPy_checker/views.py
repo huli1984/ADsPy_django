@@ -64,17 +64,14 @@ def find_ads_background(el, scheduled_start):
     manager = ADsPyManager((el[1], el[5]), el[7], el[8], el[9], el[10], el[6], el[0], el[4], el[3], el[2], el[11]) # el[11] -> unique_id of post
     q = Queue(connection=Redis())
     print("{}, scheduled start at".format(scheduled_start))
-    print("___________\n{}, {}, {}".format(scheduled_start, datetime.now(), (datetime.utcnow().replace(tzinfo=pytz.utc)) - scheduled_start))
-    if ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 0:
+    if ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 0 and ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) < 180 :
         print("\n")
         print((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1))
         print("ready to go this way")
         print("\n")
         scheduled_start = "now"
-    else:
-        print("schdueled")
-        print((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1))
-        print("\n")
+    elif ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 180:
+        pass
 
     if scheduled_start == "now":
         print("standard job task")
@@ -88,9 +85,9 @@ def find_ads_background(el, scheduled_start):
         #call method to start at specified time (or save the query in a text)
         print(scheduled_start, start_time, "job start in scheduled mode")
         #scheduler = Scheduler(connection=Redis())
-        print("called job, {}".format(manager.find_ads))
+        '''print("called job, {}".format(manager.find_ads))
         print("\n_________\nstart_time", start_time, "\n")
-        print("Queue: {}".format(q))
+        print("Queue: {}".format(q))'''
 
         scheduler = Scheduler(queue_name="default", queue=q, connection=Redis())
 

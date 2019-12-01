@@ -44,7 +44,7 @@ def auto_monnezzaro(args):
                                             try:
                                                 os.kill(child.pid, signal.SIGKILL)
                                             except (OSError, NoSuchProcess) as my_error:
-                                                pass
+                                                print(my_error)
                                         os.kill(int(ids[i]), signal.SIGTERM)
                                     except (OSError, NoSuchProcess) as my_error:
                                         print("nothign to kill", my_error)
