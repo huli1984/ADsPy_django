@@ -40,7 +40,6 @@ class MySearch(models.Model):
 
     # Fields
     job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now)
-    #job_starts = models.CharField(max_length=5, default="now")
     timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
     result_field = models.TextField(blank=True, null=True)
     slug = models.SlugField()
