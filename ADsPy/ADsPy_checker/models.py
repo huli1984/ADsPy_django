@@ -27,6 +27,7 @@ resting_time = 30
 default_loc = False
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+print([item for item in os.walk(BASE_DIR) if "template" in str(item)])
 csv_address = BASE_DIR + "/ADsPy_checker/static/ADsPy/df/"
 
 
