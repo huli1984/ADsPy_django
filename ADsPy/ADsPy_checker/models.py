@@ -39,20 +39,20 @@ class MySearch(models.Model):
     print("BASE DIR: {}".format(BASE_DIR))
 
     # Fields
-    job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now)
-    timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
-    result_field = models.TextField(blank=True, null=True)
+    job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now, max_length=255)
+    timestamp_now = models.DateField(auto_now=False, auto_now_add=True, max_length=255)
+    result_field = models.TextField(blank=True, null=True, max_length=255)
     slug = models.SlugField(max_length=255)
-    latandlong = models.CharField(max_length=50, default="Seppia")
-    my_search_query = models.CharField(max_length=250)
-    wanna_check_distance = models.BooleanField(default=True)
-    initialize = models.CharField(default="N", max_length=1)
+    latandlong = models.CharField(max_length=255, default="Seppia")
+    my_search_query = models.CharField(max_length=255)
+    wanna_check_distance = models.BooleanField(default=True, max_length=255)
+    initialize = models.CharField(default="N", max_length=255)
     prof = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile/"
     prof_one = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_one/"
     prof_two = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_two/"
     prof_three = BASE_DIR + "/ADsPy_checker/static/ADsPy/profile_three/"
-    job_timeout = models.CharField(max_length=9, default=900)
-    insert_job_timeout = models.CharField(max_length=25, name="job timeout", default="00:15")
+    job_timeout = models.CharField(max_length=255, default=900)
+    insert_job_timeout = models.CharField(max_length=255, name="job timeout", default="00:15")
 
     # Metadata
     class Meta:
