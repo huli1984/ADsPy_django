@@ -7,7 +7,7 @@ Django==2.2.7
 django-heroku==0.3.1
 django-admin-interface==0.11.2
 django-supervisor==0.4.0
-
+python-dotenv==0.10.3
 django-apptemplates==1.4
 django-colorfield==0.1.15
 django-flat-responsive==2.0
