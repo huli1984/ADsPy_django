@@ -42,7 +42,7 @@ class MySearch(models.Model):
     job_starts = models.DateTimeField(verbose_name="Inserire tempo di avvio", default=timezone.now)
     timestamp_now = models.DateField(auto_now=False, auto_now_add=True)
     result_field = models.TextField(blank=True, null=True)
-    slug = models.SlugField()
+    slug = models.SlugField(max_length=255)
     latandlong = models.CharField(max_length=50, default="Seppia")
     my_search_query = models.CharField(max_length=250)
     wanna_check_distance = models.BooleanField(default=True)
