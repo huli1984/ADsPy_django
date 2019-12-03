@@ -176,13 +176,6 @@ RQ_QUEUES = {
         'DB': 0,
         'DEFAULT_TIMEOUT': 360,
     },
-
-    'high': {
-        'HOST': os.getenv('REDIS_HOST', 'localhost'),
-        'PORT': 6379,
-        'DB': 0,
-        'DEFAULT_TIMEOUT': 360,
-    }
 }
 
 '''CACHES = {

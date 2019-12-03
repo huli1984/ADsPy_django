@@ -25,9 +25,6 @@ redis>=3.3.11
 rq>=1.1.0
 
 git+https://github.com/huli1984/adspy_public.git
-django-redis-cache==2.1.0
-
-django-redis-cache==2.1.0
 
 -e git+https://github.com/mobolic/facebook-sdk.git@65ff582e77f7ed68b6e9643a7490e5dee2a1031b#egg=facebook_sdk
 fake-useragent==0.1.11
