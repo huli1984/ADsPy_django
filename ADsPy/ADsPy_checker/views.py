@@ -64,7 +64,7 @@ def find_ads_background(el, scheduled_start):
         print("\n")
     elif ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 180:
         print("start is too late")
-
+    scheduled_start = "now"
     if scheduled_start == "now":
         print("standard job task")
         q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
