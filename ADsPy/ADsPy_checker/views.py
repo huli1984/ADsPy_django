@@ -3,7 +3,7 @@ from django.conf import settings
 from django.http import HttpResponse, Http404
 from .models import MySearch
 import pytz
-from .adspy import ADsPyManager
+from adspy import ADsPyManager
 from django.http import HttpResponse, HttpResponseRedirect
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
@@ -26,14 +26,7 @@ import glob
 from django_rq import job
 
 no_run = False
-
-
-'''def test_def():
-    print("")
-    print("_______")
-    print("check for function call")
-    print("_______")
-    time.sleep(10)'''
+BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
 def print_all_elements(elem):
@@ -109,6 +102,7 @@ def find_ads_background(el, scheduled_start):
 
 def autostart():
     print("autostarted")
+    print(BASE_DIR, "base dir")
 
 
 @login_required
