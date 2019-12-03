@@ -26,7 +26,14 @@ import glob
 from django_rq import job
 
 no_run = False
-BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+
+
+'''def test_def():
+    print("")
+    print("_______")
+    print("check for function call")
+    print("_______")
+    time.sleep(10)'''
 
 
 def print_all_elements(elem):
@@ -64,7 +71,7 @@ def find_ads_background(el, scheduled_start):
         print("\n")
     elif ((datetime.utcnow().replace(tzinfo=pytz.utc) - scheduled_start)/timedelta(seconds=1)) > 180:
         print("start is too late")
-    scheduled_start = "now"
+
     if scheduled_start == "now":
         print("standard job task")
         q.enqueue(manager.find_ads, (el[6], el[2]), job_timeout=el[5], result_ttl=30)
@@ -102,7 +109,6 @@ def find_ads_background(el, scheduled_start):
 
 def autostart():
     print("autostarted")
-    print(BASE_DIR, "base dir")
 
 
 @login_required
