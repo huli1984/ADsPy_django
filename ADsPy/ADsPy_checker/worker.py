@@ -1,4 +1,4 @@
-'''import os
+import os
 
 import redis
 from rq import Worker, Queue, Connection
@@ -12,9 +12,10 @@ conn = redis.from_url(redis_url)
 if __name__ == '__main__':
     with Connection(conn):
         worker = Worker(map(Queue, listen))
-        worker.work()'''
+        worker.work()
 
-import os
+
+'''import os
 import urllib.parse
 from redis import Redis
 from rq import Queue, Connection
@@ -33,4 +34,4 @@ conn = Redis(host=url.hostname, port=url.port, db=0, password=url.password)
 if __name__ == '__main__':
     with Connection(conn):
         worker = Worker(map(Queue, listen))
-        worker.work()
+        worker.work()'''

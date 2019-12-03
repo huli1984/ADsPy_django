@@ -185,12 +185,12 @@ RQ_QUEUES = {
     }
 }
 
-CACHES = {
+'''CACHES = {
     "default": {
          "BACKEND": "redis_cache.RedisCache",
          "LOCATION": os.environ.get('REDIS_URL'),
     }
-}
+}'''
 
 # Redirect to home URL after login (Default redirects to /accounts/profile/)
 LOGIN_REDIRECT_URL = '/'
